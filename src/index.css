@@ -2,13 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-.topography-background {
-    background-image: url("../static/img/topography.svg");
-}
-
 button {
     /* TODO: do smooth transitions for the hover/active states (GSAP can probably do this in a gradient-compatible way?) */
-    @apply bg-gradient-to-tl from-orange-900 to-yellow-800 py-2 px-4 hover:to-yellow-700 active:to-yellow-700 active:from-orange-800;
+    @apply font-action font-bold px-3 py-2 text-sm md:text-base lg:text-lg rounded-md text-white bg-white bg-opacity-10 hover:bg-opacity-20 active:bg-opacity-25 focus:bg-opacity-20 focus:ring-2 ring-blue-500;
+}
+
+.chat-box .dialog {
+    @apply p-3;
+    background-color: #533659;
+    border-radius: 8px;
+}
+
+.chat-box .character {
+    @apply space-x-4 flex items-end;
+    margin-top: -8px;    
+}
+
+.chat-box .character .portrait {
+    background-color: rgb(195, 195, 195);
+    border-color: #816088;    
+    border-radius: 50%;
+}
+
+.chat-box .character .name {
+    @apply font-sans text-sm font-bold;
+}
+
+nav ul li a,
+nav ul li button
+ {
+    @apply inline-block rounded-md bg-white bg-opacity-0 hover:bg-opacity-10 active:bg-opacity-20 font-action text-white text-lg font-bold;
+    padding: 8px;
+}
+
+nav ul li .spacer {
+    border-color: hsl(0, 0%, 27%);
+    border-width: 1px;
+    height: 100%;
 }
 
 /* TODO: surely there's a better way to hide scroll bars now? */
@@ -96,9 +126,7 @@ button {
   }
   
   
-
-
-/* @font-face {
+@font-face {
     font-family: 'Grandstander';
     font-style: normal;
     font-weight: 400;
@@ -127,4 +155,4 @@ button {
          url('../static/font/grandstander-v11-latin-800.woff2') format('woff2'), 
          url('../static/font/grandstander-v11-latin-800.woff') format('woff'); 
   }
-   */
+  
