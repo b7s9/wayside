@@ -1,10 +1,22 @@
 module.exports = {
     content: ["./src/**/*.{html,js}"],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                // 'transparent': 'transparent',
+                // 'current': 'currentColor',
+                'surface': {
+                    900: '#160F18',
+                    800: '#1E1826'
+                }
+            },
+        },
+
         fontFamily: {
-            'serif': ['Ortica', 'serif'],
-            'sans': ['Porpora', 'Helvetica Neue', 'Helvetica', 'sans']
+            'serif': ['serif'],
+            'sans': ['DM Sans', 'Helvetica Neue', 'Helvetica', 'Roboto', 'sans-serif'],
+            'paper': ['Epilogue', 'Helvetica Neue', 'Helvetica', 'Roboto', 'sans-serif'],
+            'action': ['Grandstander', 'Helvetica Neue', 'Helvetica', 'Roboto', 'sans-serif'],
         }
     },
     plugins: [],
