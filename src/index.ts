@@ -44,10 +44,10 @@ class Game {
         paragraph.innerHTML = text;
         this.text_display.appendChild(paragraph);
         await gsap.fromTo(paragraph, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 });
-        gsap.to(this.story_display.parentElement, { scrollTo: 'max', duration: 0.5 });
+        gsap.to(this.text_display, { scrollTo: 'max', duration: 0.5 });
     }
 
-    add_choices(choices: Choice[]) {
+    async add_choices(choices: Choice[]) {
         for (let choice of choices) {
             let button = document.createElement("button");
             button.innerText = choice.text;
@@ -56,6 +56,7 @@ class Game {
                 this.continue_until_choice();
             });
             this.choice_display.appendChild(button);
+            gsap.fromTo(button, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2, delay: 0.1 * choice.index });
         }
     }
 
