@@ -94,5 +94,3 @@ let play_popup_button = play_popup.querySelector("button")!;
 play_popup_button.addEventListener("click", () => {
     gsap.to(play_popup, { autoAlpha: 0, duration: 0.5 });
 });
-
-game.add_image('LJS');

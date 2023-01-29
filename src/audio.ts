@@ -27,8 +27,6 @@ export class GameAudio {
         let source = this.context.createBufferSource();
         source.buffer = this.loaded_files[file_name];
         source.loop = loop;
-        let gain = this.context.createGain();
-        gain.gain.value = 0.3;
         source.connect(this.output_node);
         source.start();
     }
