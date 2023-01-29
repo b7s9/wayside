@@ -2,7 +2,7 @@ import { Choice } from 'inkjs/engine/Choice';
 import { Story } from 'inkjs/engine/Story';
 import story_data from '../static/data/the_intercept.json';
 // @ts-ignore
-import * as images from '../static/img/*.png';
+import * as images from '../static/img/dynamic-img/*.png';
 import gsap from 'gsap';
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { GameAudio } from './audio';
@@ -47,7 +47,7 @@ class Game {
     async add_text(text: string) {
         let prev_paragraph = this.text_display.lastChild;
         gsap.to(prev_paragraph, { autoAlpha: 0.7, duration: 0.3 });
-        
+
         let paragraph = document.createElement("p");
         // Careful here! Safe for now, because the text can only come from our own story
         // We use innerHTML here so story writers can include <span> elements and stuff
