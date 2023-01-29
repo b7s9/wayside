@@ -1,6 +1,8 @@
 import { Choice } from 'inkjs/engine/Choice';
 import { Story } from 'inkjs/engine/Story';
 import story_data from '../static/data/the_intercept.json';
+// @ts-ignore
+import * as images from '../static/img/*.png';
 import gsap from 'gsap';
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 gsap.registerPlugin(ScrollToPlugin);
@@ -10,11 +12,13 @@ class Game {
     story_display: HTMLDivElement;
     text_display: HTMLDivElement;
     choice_display: HTMLDivElement;
+    image_container: HTMLDivElement;
 
     constructor() {
         this.story_display = document.querySelector("#story-display")!;
         this.text_display = document.querySelector("#text-display")!;
         this.choice_display = document.querySelector("#choice-display")!;
+        this.image_container = document.querySelector("#image-container")!;
         this.story = new Story(story_data);
     }
 
@@ -26,8 +30,11 @@ class Game {
         await this.clear_choices();
 
         while (this.story.canContinue) {
-            // TODO: figure out if Story::Continue can ever return null here
-            await this.add_text(this.story.Continue()!);
+            let text = this.story.Continue()!;
+            for (let image_name of text.matchAll(/@image:([\w\d-_]+)/g)) {
+                // TODO: extract image name and add it
+            }
+            await this.add_text(text);
         }
 
         this.add_choices(this.story.currentChoices);
@@ -58,6 +65,15 @@ class Game {
             this.choice_display.appendChild(button);
             gsap.fromTo(button, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2, delay: 0.1 * choice.index });
         }
+    }
+
+    async add_image(image_name: string) {
+        // WARNING: only works with PNG images
+        let new_img = document.createElement("img");
+        new_img.src = images[image_name];
+        new_img.classList.add("object-contain", "w-full", "h-fit", "absolute", "top-0", "left-0");
+        game.image_container.appendChild(new_img);
+        gsap.fromTo(new_img, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 });
     }
 
     async clear_choices() {
