@@ -68,3 +68,9 @@ class Game {
 
 let game = new Game();
 game.start();
+
+let play_popup = document.querySelector("#play-popup")!;
+let play_popup_button = play_popup.querySelector("button")!;
+play_popup_button.addEventListener("click", () => {
+    gsap.to(play_popup, { autoAlpha: 0, duration: 0.5 });
+});

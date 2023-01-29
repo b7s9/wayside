@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 button {
-    /* TODO: do smooth transitions for the hover/active states (GSAP can probably do this in a gradient-compatible way?) */
-    @apply font-action font-bold px-3 py-2 text-sm md:text-base lg:text-lg rounded-md text-white bg-white bg-opacity-10 hover:bg-opacity-20 active:bg-opacity-25 focus:bg-opacity-20 focus:ring-2 ring-blue-500;
+    @apply px-3 py-2 text-sm font-bold text-white bg-white rounded-md font-action md:text-base lg:text-lg bg-opacity-10 hover:bg-opacity-20 active:bg-opacity-25 focus:bg-opacity-20 focus:ring-2 ring-blue-500;
 }
 
 .chat-box .dialog {
@@ -14,7 +13,7 @@ button {
 }
 
 .chat-box .character {
-    @apply space-x-4 flex items-end;
+    @apply flex items-end space-x-4;
     margin-top: -8px;    
 }
 
@@ -31,7 +30,7 @@ button {
 nav ul li a,
 nav ul li button
  {
-    @apply inline-block rounded-md bg-white bg-opacity-0 hover:bg-opacity-10 active:bg-opacity-20 font-action text-white text-lg font-bold;
+    @apply inline-block text-lg font-bold text-white bg-white bg-opacity-0 rounded-md hover:bg-opacity-10 active:bg-opacity-20 font-action;
     padding: 8px;
 }
 
