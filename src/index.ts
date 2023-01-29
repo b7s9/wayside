@@ -5,6 +5,7 @@ import story_data from '../static/data/the_intercept.json';
 import * as images from '../static/img/*.png';
 import gsap from 'gsap';
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { GameAudio } from './audio';
 gsap.registerPlugin(ScrollToPlugin);
 
 class Game {
@@ -13,6 +14,7 @@ class Game {
     text_display: HTMLDivElement;
     choice_display: HTMLDivElement;
     image_container: HTMLDivElement;
+    audio: GameAudio;
 
     constructor() {
         this.story_display = document.querySelector("#story-display")!;
@@ -20,6 +22,8 @@ class Game {
         this.choice_display = document.querySelector("#choice-display")!;
         this.image_container = document.querySelector("#image-container")!;
         this.story = new Story(story_data);
+        this.audio = new GameAudio();
+        this.audio.preload();
     }
 
     start() {
@@ -32,7 +36,7 @@ class Game {
         while (this.story.canContinue) {
             let text = this.story.Continue()!;
             for (let image_name of text.matchAll(/@image:([\w\d-_]+)/g)) {
-                // TODO: extract image name and add it
+                this.add_image(image_name[1]);
             }
             await this.add_text(text);
         }
@@ -90,3 +94,5 @@ let play_popup_button = play_popup.querySelector("button")!;
 play_popup_button.addEventListener("click", () => {
     gsap.to(play_popup, { autoAlpha: 0, duration: 0.5 });
 });
+
+game.add_image('LJS');
