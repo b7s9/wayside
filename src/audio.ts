@@ -1,5 +1,5 @@
 // @ts-ignore
-import * as audio_files from 'url:../static/audio/*.wav';
+import * as audio_files from 'url:../static/audio/**/*.m4a';
 
 export class GameAudio {
     private context: AudioContext;
@@ -8,13 +8,13 @@ export class GameAudio {
 
     constructor() {
         this.context = new AudioContext();
-        
+
         let gain = this.context.createGain();
         gain.gain.value = 0.3;
         let limiter = this.context.createDynamicsCompressor();
         limiter.attack.value = 0;
         gain.connect(limiter).connect(this.context.destination);
-        
+
         this.output_node = gain;
     }
 
@@ -42,6 +42,15 @@ export class GameAudio {
     async preload() {
         await Promise.all([
             // TODO: add sound files here
+            this.load_file('button-click-1'),
+            this.load_file('button-hover-1'),
+            this.load_file('chime-1'),
+            this.load_file('short-chime-1'),
+            this.load_file('short-chime-2'),
+            this.load_file('short-chime-3'),
+            this.load_file('short-chime-4'),
+
+            this.load_file('ben-song-waterways'),
             // this.load_file("ping"),
             // this.load_file("click"),
         ]);

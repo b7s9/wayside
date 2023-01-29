@@ -138,6 +138,4 @@ let dynamicLayerMap = {
 		alt: 'The comfiest chair youve ever seen',
 		layer: 12
 	}
-
-
 }
