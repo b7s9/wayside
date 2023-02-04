@@ -1,6 +1,6 @@
 import { Choice } from 'inkjs/engine/Choice';
 import { Story } from 'inkjs/engine/Story';
-import story_data from '../static/data/the_intercept.json';
+import story_data from '../static/data/littimer-test.json';
 // @ts-ignore
 import * as sceneImages from '../static/img/dynamic-img/*.png';
 // @ts-ignore
@@ -37,12 +37,16 @@ class Game {
     async continue_until_choice() {
         await this.clear_choices();
 
+        // TODO: add a next button so user interaction is required to advance story
         while (this.story.canContinue) {
             let text = this.story.Continue()!;
+
+            let isEntryImage = false;
             for (let image_name of text.matchAll(/@image:([\w\d-_]+)/g)) {
                 this.add_image(image_name[1]);
+                isEntryImage = true;
             }
-            await this.add_text(text);
+            !isEntryImage && await this.add_text(text);
         }
 
         this.add_choices(this.story.currentChoices);
@@ -62,6 +66,7 @@ class Game {
         gsap.to(this.text_display, { scrollTo: 'max', duration: 0.5 });
     }
 
+    // TODO: add different CSS classes for Next button vs. Choices
     async add_choices(choices: Choice[]) {
         for (let choice of choices) {
             let button = document.createElement("button");
