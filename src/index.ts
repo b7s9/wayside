@@ -2,7 +2,11 @@ import { Choice } from 'inkjs/engine/Choice';
 import { Story } from 'inkjs/engine/Story';
 import story_data from '../static/data/the_intercept.json';
 // @ts-ignore
-import * as images from '../static/img/dynamic-img/*.png';
+import * as sceneImages from '../static/img/dynamic-img/*.png';
+// @ts-ignore
+import * as bgImages from '../static/img/bg-img/*.png';
+import { dynamicLayerMap, bgLayerMap } from './layer-map';
+
 import gsap from 'gsap';
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { GameAudio } from './audio';
@@ -71,13 +75,26 @@ class Game {
         }
     }
 
-    async add_image(image_name: string) {
+    async add_image(image_name: string, is_background: boolean = false) {
         // WARNING: only works with PNG images
         let new_img = document.createElement("img");
-        new_img.src = images[image_name];
-        new_img.classList.add("object-contain", "w-full", "h-fit", "absolute", "top-0", "left-0");
+
+        const src = is_background ? bgImages[bgLayerMap[image_name].src] : sceneImages[dynamicLayerMap[image_name].src]
+        new_img.src = src;
+
+        new_img.classList.add("game-img");
+        const zIndex = is_background ? bgLayerMap[image_name].layer : dynamicLayerMap[image_name].layer;
+        new_img.style.zIndex = zIndex.toString();
         game.image_container.appendChild(new_img);
+
         gsap.fromTo(new_img, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 });
+    }
+
+    async renderBackground() {
+        for (let [imgName, img] of Object.entries(bgLayerMap)) {
+            // this.add_image(img.src, img.layer, true)
+            this.add_image(imgName, true)
+        }
     }
 
     async clear_choices() {
@@ -88,11 +105,10 @@ class Game {
 
 let game = new Game();
 game.start();
+game.renderBackground()
 
 let play_popup = document.querySelector("#play-popup")!;
 let play_popup_button = play_popup.querySelector("button")!;
 play_popup_button.addEventListener("click", () => {
     gsap.to(play_popup, { autoAlpha: 0, duration: 0.5 });
 });
-
-game.add_image('LJS');
