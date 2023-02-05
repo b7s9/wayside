@@ -89,7 +89,6 @@ class Game {
         }
     }
 
-<<<<<<< HEAD
     async add_next_button() {
         let button = document.createElement("button");
         button.innerText = ">";
@@ -100,10 +99,7 @@ class Game {
         gsap.fromTo(button, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 });
     }
 
-    async add_image(image_name: string) {
-=======
     async add_image(image_name: string, is_background: boolean = false) {
->>>>>>> 80d59b78f17e03d2fe489746384e1896ea23cd4e
         // WARNING: only works with PNG images
         let new_img = document.createElement("img");
 
