@@ -99,7 +99,7 @@ class Game {
         gsap.fromTo(button, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 });
     }
 
-    async add_image(image_name: string, is_background: boolean = false) {
+    add_image(image_name: string, is_background: boolean = false) {
         // WARNING: only works with PNG images
         let new_img = document.createElement("img");
 
@@ -111,7 +111,8 @@ class Game {
         new_img.style.zIndex = zIndex.toString();
         game.image_container.appendChild(new_img);
 
-        gsap.fromTo(new_img, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 });
+        gsap.set(new_img, { autoAlpha: 0 });
+        new_img.addEventListener("load", () => gsap.fromTo(new_img, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5 }));
     }
 
     async renderBackground() {
