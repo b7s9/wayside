@@ -27,21 +27,27 @@ class Game {
     }
 
     start() {
-        this.continue_until_choice();
+        this.next_paragraph();
     }
 
-    async continue_until_choice() {
+    async next_paragraph() {
         await this.clear_choices();
-
-        while (this.story.canContinue) {
-            let text = this.story.Continue()!;
-            for (let image_name of text.matchAll(/@image:([\w\d-_]+)/g)) {
-                this.add_image(image_name[1]);
-            }
-            await this.add_text(text);
+        
+        let text = this.story.Continue()!;
+        for (let image_name of text.matchAll(/@image:([\w\d-_]+)/g)) {
+            this.add_image(image_name[1]);
         }
 
-        this.add_choices(this.story.currentChoices);
+        for (let audio_name of text.matchAll(/@audio:([\w\d-_]+)/g)) {
+            this.audio.play(audio_name[1], true);
+        }
+        await this.add_text(text);
+        
+        if (this.story.canContinue) {
+            this.add_next_button();
+        } else {
+            this.add_choices(this.story.currentChoices);
+        }
     }
 
     async add_text(text: string) {
@@ -64,11 +70,21 @@ class Game {
             button.innerText = choice.text;
             button.addEventListener("click", () => {
                 this.story.ChooseChoiceIndex(choice.index);
-                this.continue_until_choice();
+                this.next_paragraph();
             });
             this.choice_display.appendChild(button);
             gsap.fromTo(button, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2, delay: 0.1 * choice.index });
         }
+    }
+
+    async add_next_button() {
+        let button = document.createElement("button");
+        button.innerText = ">";
+        button.addEventListener("click", () => {
+            this.next_paragraph();
+        });
+        this.choice_display.replaceChildren(button);
+        gsap.fromTo(button, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 });
     }
 
     async add_image(image_name: string) {
