@@ -6,6 +6,10 @@ button {
     @apply px-3 py-2 text-sm font-bold text-white bg-white rounded-md font-action md:text-base lg:text-lg bg-opacity-10 hover:bg-opacity-20 active:bg-opacity-25 focus:bg-opacity-20 focus:ring-2 ring-blue-500;
 }
 
+.game-img {
+    @apply object-contain w-full h-fit absolute top-0 left-0;
+}
+
 .chat-box .dialog {
     @apply p-3;
     background-color: #533659;

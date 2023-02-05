@@ -1,8 +1,12 @@
 import { Choice } from 'inkjs/engine/Choice';
 import { Story } from 'inkjs/engine/Story';
-import story_data from '../static/data/the_intercept.json';
+import story_data from '../static/data/littimer-test.json';
 // @ts-ignore
-import * as images from '../static/img/*.png';
+import * as sceneImages from '../static/img/dynamic-img/*.png';
+// @ts-ignore
+import * as bgImages from '../static/img/bg-img/*.png';
+import { dynamicLayerMap, bgLayerMap } from './layer-map';
+
 import gsap from 'gsap';
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { GameAudio } from './audio';
@@ -34,6 +38,7 @@ class Game {
         await this.clear_choices();
         
         let text = this.story.Continue()!;
+
         for (let image_name of text.matchAll(/@image:([\w\d-_]+)/g)) {
             this.add_image(image_name[1]);
         }
@@ -41,6 +46,12 @@ class Game {
         for (let audio_name of text.matchAll(/@audio:([\w\d-_]+)/g)) {
             this.audio.play(audio_name[1], true);
         }
+
+        text = text.replace(/@([\w\d-_]+):([\w\d-_]+)/g, '');
+        if (text.trim().length === 0) {
+            this.next_paragraph();
+        }
+        
         await this.add_text(text);
         
         if (this.story.canContinue) {
@@ -53,7 +64,7 @@ class Game {
     async add_text(text: string) {
         let prev_paragraph = this.text_display.lastChild;
         gsap.to(prev_paragraph, { autoAlpha: 0.7, duration: 0.3 });
-        
+
         let paragraph = document.createElement("p");
         // Careful here! Safe for now, because the text can only come from our own story
         // We use innerHTML here so story writers can include <span> elements and stuff
@@ -64,6 +75,7 @@ class Game {
         gsap.to(this.text_display, { scrollTo: 'max', duration: 0.5 });
     }
 
+    // TODO: add different CSS classes for Next button vs. Choices
     async add_choices(choices: Choice[]) {
         for (let choice of choices) {
             let button = document.createElement("button");
@@ -77,6 +89,7 @@ class Game {
         }
     }
 
+<<<<<<< HEAD
     async add_next_button() {
         let button = document.createElement("button");
         button.innerText = ">";
@@ -88,12 +101,28 @@ class Game {
     }
 
     async add_image(image_name: string) {
+=======
+    async add_image(image_name: string, is_background: boolean = false) {
+>>>>>>> 80d59b78f17e03d2fe489746384e1896ea23cd4e
         // WARNING: only works with PNG images
         let new_img = document.createElement("img");
-        new_img.src = images[image_name];
-        new_img.classList.add("object-contain", "w-full", "h-fit", "absolute", "top-0", "left-0");
+
+        const src = is_background ? bgImages[bgLayerMap[image_name].src] : sceneImages[dynamicLayerMap[image_name].src]
+        new_img.src = src;
+
+        new_img.classList.add("game-img");
+        const zIndex = is_background ? bgLayerMap[image_name].layer : dynamicLayerMap[image_name].layer;
+        new_img.style.zIndex = zIndex.toString();
         game.image_container.appendChild(new_img);
+
         gsap.fromTo(new_img, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 });
+    }
+
+    async renderBackground() {
+        for (let [imgName, img] of Object.entries(bgLayerMap)) {
+            // this.add_image(img.src, img.layer, true)
+            this.add_image(imgName, true)
+        }
     }
 
     async clear_choices() {
@@ -104,6 +133,7 @@ class Game {
 
 let game = new Game();
 game.start();
+game.renderBackground()
 
 let play_popup = document.querySelector("#play-popup")!;
 let play_popup_button = play_popup.querySelector("button")!;
