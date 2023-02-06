@@ -9,6 +9,8 @@ You turn your head back to the fire, and there it is. Staring at you.
 
 @image:ljs
 
+@audioPlay:waterways
+
 
 The creature doesn't say anything when you express your surprise at its sudden appearance. It just smiles.
 
@@ -35,3 +37,5 @@ Do you like their jawts?
 * [No] The fish-man seems saddened, and for a moment you're worried that honesty was not the best policy. But then they speak.
 
 A peaceful moment passes, and the mood between you seems to lighten up. Littimer doesn't seem like a threat. Just another traveller, looking for the warmth of a pyre.
+
+@audioStop:waterways

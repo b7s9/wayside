@@ -4,6 +4,8 @@ import * as Tone from 'tone'
 import * as audioMusicUrls from 'url:../static/audio/music/*.m4a';
 // @ts-ignore
 import * as audioSfxUrls from 'url:../static/audio/sfx/*.m4a';
+// @ts-ignore
+import * as audioAmbUrls from 'url:../static/audio/amb/*.m4a';
 
 interface AudioPlayers {
     [key: string]: Tone.Player
@@ -43,11 +45,24 @@ export class GameAudio {
                 loop: true
             }).connect(this.volume)
         }
+        for (const [name, url] of Object.entries(audioAmbUrls)) {
+            this.audioSources[name] = new Tone.Player({
+                url: '' + url, //implicit string type conversion needed for some reason
+                fadeIn: 2,
+                fadeOut: 2,
+                loop: true,
+                volume: -3,
+            }).connect(this.volume)
+        }
     }
 
     playAudio(filename: string) {
         // Tone.loaded().then(() => {
         this.audioSources[filename].start()
         // })
+    }
+
+    stopAudio(filename: string) {
+        this.audioSources[filename].stop()
     }
 }
