@@ -41,12 +41,19 @@ class Game {
         while (this.story.canContinue) {
             let text = this.story.Continue()!;
 
-            let isEntryImage = false;
+            let isEntryTextOnly = true;
             for (let image_name of text.matchAll(/@image:([\w\d-_]+)/g)) {
                 this.add_image(image_name[1]);
-                isEntryImage = true;
+                isEntryTextOnly = false;
             }
-            !isEntryImage && await this.add_text(text);
+            for (let audio_name of text.matchAll(/@audio:([\w\d-_]+)/g)) {
+                // TODO:
+                // load new scene audio track
+                // fade out last scene audio track
+                // fade in new scene audio track
+                isEntryTextOnly = false;
+            }
+            isEntryTextOnly && await this.add_text(text);
         }
 
         this.add_choices(this.story.currentChoices);
@@ -116,4 +123,5 @@ let play_popup = document.querySelector("#play-popup")!;
 let play_popup_button = play_popup.querySelector("button")!;
 play_popup_button.addEventListener("click", () => {
     gsap.to(play_popup, { autoAlpha: 0, duration: 0.5 });
+    game.audio.playAudio('chime-1')
 });
