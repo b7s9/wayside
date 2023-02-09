@@ -31,15 +31,16 @@ class Game {
     }
 
     start() {
-        this.continue_until_choice();
+        this.next_paragraph();
     }
 
-    async continue_until_choice() {
+    async next_paragraph() {
         await this.clear_choices();
 
-        // TODO: add a next button so user interaction is required to advance story
-        while (this.story.canContinue) {
-            let text = this.story.Continue()!;
+        let text = this.story.Continue()!;
+
+        for (let image_name of text.matchAll(/@image:([\w\d-_]+)/g)) {
+            this.add_image(image_name[1]);
 
             let isEntryTextOnly = true;
             for (let image_name of text.matchAll(/@image:([\w\d-_]+)/g)) {
@@ -62,7 +63,19 @@ class Game {
             isEntryTextOnly && await this.add_text(text);
         }
 
-        this.add_choices(this.story.currentChoices);
+        text = text.replace(/@([\w\d-_]+):([\w\d-_]+)/g, '');
+        if (text.trim().length === 0) {
+            this.next_paragraph();
+        }
+
+
+        await this.add_text(text);
+
+        if (this.story.canContinue) {
+            this.add_next_button();
+        } else {
+            this.add_choices(this.story.currentChoices);
+        }
     }
 
     async add_text(text: string) {
@@ -86,14 +99,24 @@ class Game {
             button.innerText = choice.text;
             button.addEventListener("click", () => {
                 this.story.ChooseChoiceIndex(choice.index);
-                this.continue_until_choice();
+                this.next_paragraph();
             });
             this.choice_display.appendChild(button);
             gsap.fromTo(button, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2, delay: 0.1 * choice.index });
         }
     }
 
-    async add_image(image_name: string, is_background: boolean = false) {
+    async add_next_button() {
+        let button = document.createElement("button");
+        button.innerText = ">";
+        button.addEventListener("click", () => {
+            this.next_paragraph();
+        });
+        this.choice_display.replaceChildren(button);
+        gsap.fromTo(button, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 });
+    }
+
+    add_image(image_name: string, is_background: boolean = false) {
         // WARNING: only works with PNG images
         let new_img = document.createElement("img");
 
@@ -105,7 +128,8 @@ class Game {
         new_img.style.zIndex = zIndex.toString();
         game.image_container.appendChild(new_img);
 
-        gsap.fromTo(new_img, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 });
+        gsap.set(new_img, { autoAlpha: 0 });
+        new_img.addEventListener("load", () => gsap.fromTo(new_img, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5 }));
     }
 
     async renderBackground() {
