@@ -1,6 +1,6 @@
 import { Choice } from 'inkjs/engine/Choice';
 import { Story } from 'inkjs/engine/Story';
-import story_data from '../static/data/littimer-test.json';
+import story_data from '../static/data/audio-test.json';
 // @ts-ignore
 import * as sceneImages from '../static/img/dynamic-img/*.png';
 // @ts-ignore
@@ -36,24 +36,41 @@ class Game {
 
     async next_paragraph() {
         await this.clear_choices();
-        
+
         let text = this.story.Continue()!;
 
         for (let image_name of text.matchAll(/@image:([\w\d-_]+)/g)) {
             this.add_image(image_name[1]);
-        }
 
-        for (let audio_name of text.matchAll(/@audio:([\w\d-_]+)/g)) {
-            this.audio.play(audio_name[1], true);
+            let isEntryTextOnly = true;
+            for (let image_name of text.matchAll(/@image:([\w\d-_]+)/g)) {
+                this.add_image(image_name[1]);
+                isEntryTextOnly = false;
+            }
+            for (let audio_name of text.matchAll(/@audioPlay:([\w\d-_]+)/g)) {
+                // TODO:
+                // load new scene audio track
+                // fade out last scene audio track
+                // fade in new scene audio track
+                // music files will automatically loop, sfx files will not
+                game.audio.playAudio(audio_name[1])
+                isEntryTextOnly = false;
+            }
+            for (let audio_name of text.matchAll(/@audioStop:([\w\d-_]+)/g)) {
+                game.audio.stopAudio(audio_name[1])
+                isEntryTextOnly = false;
+            }
+            isEntryTextOnly && await this.add_text(text);
         }
 
         text = text.replace(/@([\w\d-_]+):([\w\d-_]+)/g, '');
         if (text.trim().length === 0) {
             this.next_paragraph();
         }
-        
+
+
         await this.add_text(text);
-        
+
         if (this.story.canContinue) {
             this.add_next_button();
         } else {
@@ -136,4 +153,6 @@ let play_popup = document.querySelector("#play-popup")!;
 let play_popup_button = play_popup.querySelector("button")!;
 play_popup_button.addEventListener("click", () => {
     gsap.to(play_popup, { autoAlpha: 0, duration: 0.5 });
+    game.audio.playAudio('chime-1')
+    game.audio.playAudio('amb-loop-1')
 });
