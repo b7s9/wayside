@@ -12,10 +12,10 @@ interface AudioPlayers {
 }
 export class GameAudio {
     // masterFader: ToneAudioNode
-    volume: Tone.Volume // master volume
+    volume: Tone.Volume; // master volume
     // compressor: Tone.Compressor
     // limiter: Tone.Limiter
-    audioSources
+    audioSources: AudioPlayers;
 
     constructor() {
         this.volume = new Tone.Volume(-6).toDestination();
@@ -27,7 +27,7 @@ export class GameAudio {
         // })
         // this.compressor.connect(this.volume)
 
-        this.audioSources = {}
+        this.audioSources = {};
     }
 
     preload() {
@@ -35,7 +35,7 @@ export class GameAudio {
             this.audioSources[name] = new Tone.Player({
                 url: '' + url, //implicit string type conversion needed for some reason
                 loop: false
-            }).connect(this.volume)
+            }).connect(this.volume);
         }
         for (const [name, url] of Object.entries(audioMusicUrls)) {
             this.audioSources[name] = new Tone.Player({
@@ -43,7 +43,7 @@ export class GameAudio {
                 fadeIn: 1.5,
                 fadeOut: 1,
                 loop: true
-            }).connect(this.volume)
+            }).connect(this.volume);
         }
         for (const [name, url] of Object.entries(audioAmbUrls)) {
             this.audioSources[name] = new Tone.Player({
@@ -52,17 +52,17 @@ export class GameAudio {
                 fadeOut: 2,
                 loop: true,
                 volume: -3,
-            }).connect(this.volume)
+            }).connect(this.volume);
         }
     }
 
     playAudio(filename: string) {
         // Tone.loaded().then(() => {
-        this.audioSources[filename].start()
+        this.audioSources[filename].start();
         // })
     }
 
     stopAudio(filename: string) {
-        this.audioSources[filename].stop()
+        this.audioSources[filename].stop();
     }
 }

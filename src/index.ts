@@ -41,33 +41,25 @@ class Game {
 
         for (let image_name of text.matchAll(/@image:([\w\d-_]+)/g)) {
             this.add_image(image_name[1]);
+        }
 
-            let isEntryTextOnly = true;
-            for (let image_name of text.matchAll(/@image:([\w\d-_]+)/g)) {
-                this.add_image(image_name[1]);
-                isEntryTextOnly = false;
-            }
-            for (let audio_name of text.matchAll(/@audioPlay:([\w\d-_]+)/g)) {
-                // TODO:
-                // load new scene audio track
-                // fade out last scene audio track
-                // fade in new scene audio track
-                // music files will automatically loop, sfx files will not
-                game.audio.playAudio(audio_name[1])
-                isEntryTextOnly = false;
-            }
-            for (let audio_name of text.matchAll(/@audioStop:([\w\d-_]+)/g)) {
-                game.audio.stopAudio(audio_name[1])
-                isEntryTextOnly = false;
-            }
-            isEntryTextOnly && await this.add_text(text);
+        for (let audio_name of text.matchAll(/@audioPlay:([\w\d-_]+)/g)) {
+            // TODO:
+            // load new scene audio track
+            // fade out last scene audio track
+            // fade in new scene audio track
+            // music files will automatically loop, sfx files will not
+            game.audio.playAudio(audio_name[1]);
+        }
+        for (let audio_name of text.matchAll(/@audioStop:([\w\d-_]+)/g)) {
+            game.audio.stopAudio(audio_name[1]);
         }
 
         text = text.replace(/@([\w\d-_]+):([\w\d-_]+)/g, '');
-        if (text.trim().length === 0) {
+        if (text.trim().length === 0 && this.story.canContinue) {
             this.next_paragraph();
+            return;
         }
-
 
         await this.add_text(text);
 
