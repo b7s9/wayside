@@ -13,6 +13,14 @@
     + [inspect pylon] -> pylon
     
 === choice3 ===
+    + [inspect friend] -> END
+    + [inspect sword] -> END
+    
+=== choice4 ===
+    + [inspect friend] -> egbert
+    + [inspect cauldron] -> cauldron
+    
+=== choice5 ===
     + [end story] -> END
     + [also end story] -> END
 
@@ -45,7 +53,7 @@
     You turn your head back to the fire, and there it is. Staring at you.
     
     
-    @audioPlay:waterways
+    @audioPlay:looking-frogward-to-the-end
     
     @image:littimer
     
@@ -68,7 +76,7 @@
     === littimer2 ===
     A peaceful moment passes, and the mood between you seems to lighten up. Littimer doesn't seem like a threat. Just another traveller, looking for the warmth of a pyre.
     
-    @audioStop:waterways
+    @audioStop:looking-frogward-to-the-end
     
     -> choice2
 
@@ -99,7 +107,7 @@
     
     @audioStop:coffin
 
-    -> choice2
+    -> jellychair
 
 // --------------------------------
 // Lexus, Jude, Sparks
@@ -161,5 +169,96 @@
     
     @audioStop:salvopriests
 
-    -> choice3
+    -> jellychair
+
+// --------------------------------
+// Jellychair
+// --------------------------------
+
+=== jellychair ===
+    The calm of the night is shattered by a litany of screams.
+    
+    The voices are close, just beyond a cluster of dry underbrush at the edge of the camp. It sounds like they're in pain, but sometimes it almost sounds like pleasure.
+    
+    Whatever is happening, it's unnerving. The whole episode takes a few minutes to abate, and by that time you've armed yourself with a sturdy-looking stick.
+    
+    It takes a few moments to work up the courage to look, but beyond the dry hedgerow, the aftermath of whatever commotion is revealed.
+    
+    @audioPlay:jellychair
+    @image:jellychair
+
+    
+    The voice is soft, and squeaky, like it's some tiny creature on your shoulder, or a voice inside your head. But you're sure it's not your own mind playing tricks on you.
+
+    It's the chair.
+    
+    Suddenly, there is a war inside your mind. As you think about the exquisite comfort the mass of jelly and wood could provide, your instincts fight hard to resist. 
+    
+    Eventually, after some long bouts of staring at the chair, your instincts win out. At the end of your long sojourn, the chair is firmly registered as a threat. 
+    
+    But you just can't bear to get rid of it.
+    
+    @audioStop:jellychair
+
+    -> choice4
+    
+
+// --------------------------------
+// Egbert
+// --------------------------------
+
+=== egbert ===
+    The moment you wake up, directly in front of you, there sits a person you’ve never seen before.
+    
+    @audioPlay:egbert-choir
+    @image:egbert
+    
+    Friend: Hey.
+    
+    They go back to looking around at their surroundings, each of their three eyes pointed in a different direction. They seem blissful.
+    
+    Friend: Oh, I’m Egbert, by the way.
+    
+    Egbert: You don’t mind if I sit here, right?
+    
+    Egbert: Cool.
+    
+    …
+
+    …
+    
+    …she smiles again, then points to her loincloth.
+    
+    Egbert: Do you mind if I take this off?
+    
+    …
+    
+    Egbert: cool.
+    
+    She does.
+    
+    -> choice5
+    
+=== cauldron ===
+    While out in the nearby woods, foraging for some mid-day grub, you find yourself in unfamiliar surroundings. After scanning the area for any recognizable landmarks, you concede that you are, indeed, lost.
+
+    Trudging onward in hopes of finding your way again somehow, you stumble into a small clearing by a river. There’s a modest wooden hut here, with a thatched roof and smoke rising from a stone chimney. 
+    
+    Whoever is in this hut could help you find your way home, or they could be hostile. You’ve heard stories of creatures practising dark magic in these woods.
+    
+    @audioPlay:waterways
+    @image:cauldron
+    
+    She tells you that soup-witches don’t eat people. “Not usually” she adds with a grin and a wink. Besides, you’re not plump enough to be worth your broth.
+
+    She apologises for pulling your leg, saying that she is very much want for company and mischief out here in these woods.
+    
+    She offers you her cauldron as a gift, which you try to reject at first, but which you accept after much insistence on her part. She also sends you off with a satchel of some pungent spices and some exotic ingredients you’ve never laid eyes upon. 
+    
+    As she bids you farewell, she thanks you for being a good sport, and tells you to always remember that a good meal is a gift meant to be shared with others.
+    
+    -> choice5
+
+
+    
 

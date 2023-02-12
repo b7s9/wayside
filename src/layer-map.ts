@@ -133,7 +133,7 @@ export let dynamicLayerMap = {
 		alt: '',
 		layer: 11
 	},
-	chair: {
+	jellychair: {
 		src: 'Jellyfish_Chair',
 		alt: 'The comfiest chair youve ever seen',
 		layer: 12

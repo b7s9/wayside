@@ -42,7 +42,8 @@ export class GameAudio {
                 url: '' + url, //implicit string type conversion needed for some reason
                 fadeIn: 1.5,
                 fadeOut: 1,
-                loop: true
+                loop: true,
+                volume: 0
             }).connect(this.volume);
         }
         for (const [name, url] of Object.entries(audioAmbUrls)) {
@@ -51,7 +52,7 @@ export class GameAudio {
                 fadeIn: 2,
                 fadeOut: 2,
                 loop: true,
-                volume: -3,
+                volume: 0,
             }).connect(this.volume);
         }
     }
