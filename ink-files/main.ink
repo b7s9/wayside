@@ -36,7 +36,7 @@
 	Some countless centuries ago, the world was struck by misfortune; in the days after, its people diminished, faded, and were replaced by new people – people of a different kind.
     
 	Few of those that wander the new world carry the legacy of the old; they carry strange mutations, grimy haversacks, and interminable feelings of anxiety.
-    
+	
 	There are few places to find comfort in the Froglands; walled communes and isolationist tendencies are common, and few are trusted to join the larger groups. It's safer that way.
     
 	But on the shore of the mottled lake, on the wayside of a seldom-walked trade route, there is a place to sit, talk, and perhaps find camaraderie…
@@ -47,36 +47,59 @@
 // Littimer
 // --------------------------------
 === littimer ===
-	As you sit at the fire, soaking in its subtle warmth, you begin to feel the sometimes-familiar sensation of curious eyes burrowing into you.
+    As you sit at the fire, soaking in its subtle warmth, you begin to feel the sometimes-familiar sensation of curious eyes burrowing into you.
     
+    You look around for a sign of the mystery observer, but there doesn't seem to be anyone around. There's just the quiet sound of the wind, and the lapping of the lakewater against the mossy islands.
     
-	You look around for a sign of the mystery observer, but there doesn't seem to be anyone around. There's just the quiet sound of the wind, and the lapping of the lakewater against the mossy islands.
+    You turn your head back to the fire, and there it is. Staring at you.
     
+    @audioPlay:looking-frogward-to-the-end
+    @image:littimer
     
-	You turn your head back to the fire, and there it is. Staring at you.
+    The creature doesn't say anything when you express your surprise at its sudden appearance. It just smiles.
     
+    After a moment, your eyes are drawn to the creature's one item of clothing: a pair of blue, denim shorts. They notice you noticing, and flap their fins against their tummy in excitement.
     
-	@audioPlay:looking-frogward-to-the-end
+    Finally, they say something.
     
-	@image:littimer
+    @chatStart:littimer_neutral
     
-    	The creature doesn't say anything when you express your surprise at its sudden appearance. It just smiles.
+    You like my jawts?
     
+    @chatEnd:null
     
-	After a moment, your eyes are drawn to the creature's one item of clothing: a pair of blue, denim shorts. They notice you noticing, and flap their fins against their tummy in excitement.
+    It's a question that's hard to answer. You've not seen anything quite like it before - such scandalously short shorts are certainly not the fashion in any of the communes you've visited.
     
+    But there's a local rumour, some story you've heard about a person like this - something about a wasteland wanderer with a peculiar eye for style.
     
-	You meet that peculiar eye - just one of them, since the creature's fish-like body means they have to stand slightly side-on in order to see you - and answer their question.
+    You meet that peculiar eye - just one of them, since the creature's fish-like body means they have to stand slightly side-on in order to see you - and answer their question.
     
+    Do you like their jawts?
     
-	Do you like their jawts?
+	* [Yes] -> littimer2a
+	* [No] -> littimer2b
     
+=== littimer2a ===
+    They curl the sides of their gawping mouth like a feasting sturgeon - you think that's a smile - and pat their tummy again, excited.
+
+    @chatStart:littimer_intense
     
-	* [Yes] They curl the sides of their gawping mouth like a feasting sturgeon - you think that's a smile - and pat their tummy again, excited. -> littimer2
+    Littimer loves the joornts. Supercool!
     
-	* [No] The fish-man seems saddened, and for a moment you're worried that honesty was not the best policy. But then they speak. -> littimer2
+    @chatEnd:null
+    -> littimer3
     
-	=== littimer2 ===
+=== littimer2b ===
+    The fish-man seems saddened, and for a moment you're worried that honesty was not the best policy. But then they speak. 
+
+    @chatStart:littimer_sad
+    
+    That's okay. Littimer likes them. Good enough for Littimer.
+    
+    @chatEnd:null
+    -> littimer3
+    
+=== littimer3 ===
 	A peaceful moment passes, and the mood between you seems to lighten up. Littimer doesn't seem like a threat. Just another traveller, looking for the warmth of a pyre.
     
 	@audioStop:looking-frogward-to-the-end
@@ -113,7 +136,7 @@
 	-> choice2
 
 // --------------------------------
-// Lexus, Jude, Sparks
+// lexis, Jude, Sparks
 // --------------------------------
 
 === ljs ===
@@ -125,17 +148,43 @@
     
 	@image:ljs
     
-	(chat bubble) Is that a CAMPYRE!?
+	@chatStart:jude_neutral
+	
+	Is that a CAMPYRE!?
+	
+	@chatEnd:null
     
 	You try to ignore the commotion and keep your eyes closed. But then you hear a rhythmic series of huge, loud splashes approaching your position. You open your eyes and peer out across the misty darkness of the lake, and hear a flustered shout.
     
-	(chat bubble) SLOW DOWN, JUDE!
-    
 	At first, you don’t see anything more than a vague, gargantuan shape. Something big is running right for you. You get ready to run, but as it gets closer you start to make out some fuzzy features. Not ‘fuzzy’ as in ‘hazy’ or ‘blurry’, ‘fuzzy’ as in…well…covered in fuzz!
+	
+	@chatStart:jude_neutral
+	
+	Hey! Do you have any gooey puffballs?
+	
+	@chatStart:lexis_neutral
+	
+	They don’t know what you’re talking about, Jude. Let’s at least introduce ourselves first.
+	
+	@chatStart:jude_neutral
+	
+	Right, sorry.
+	
+	@chatStart:lexis_neutral
+	
+	And this here is Sparks
+	
+	@chatStart:sparks_neutral
+	
+	...
+	
+	@chatEnd:null
     
 	Jude is chafing with anticipation, and seems ready to burst with excitement. They seem to be waiting for Lex to stop speaking, you wonder if-
     
-	(chat bubble) DO YOU HAVE ANY GOOEY PUFFBALLS!?
+	@chatStart:jude_neutral
+	DO YOU HAVE ANY GOOEY PUFFBALLS!?
+	@chatEnd:null
     
 	You’re not sure what a gooey puffball is, and your ears are starting to ring from all of Jude’s shouting, but you figure this friendly, threefold creature will at least be fun to hang out with.
     
@@ -266,4 +315,9 @@
     
 
 
+// --------------------------------
+// FUNCTIONS
+// --------------------------------
+// === function start_chat_bubble(character) ===
+// <div class="chat-bubble" data-emote="{character}"></div>
 

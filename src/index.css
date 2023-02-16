@@ -10,26 +10,29 @@ button {
     @apply object-contain w-full h-fit absolute top-0 left-0;
 }
 
-.chat-box .dialog {
+.chat-bubble .dialog {
     @apply p-3;
     background-color: #533659;
     border-radius: 8px;
 }
 
-.chat-box .character {
+/* .chat-bubble .character {
     @apply flex items-end space-x-4;
     margin-top: -8px;    
-}
+} */
 
-.chat-box .character .portrait {
+.chat-bubble .avatar {
     background-color: rgb(195, 195, 195);
-    border-color: #816088;    
+    border: 3px solid #816088;
     border-radius: 50%;
+    height: auto;
+    margin-top: -8px;
+    width: 48px;
 }
 
-.chat-box .character .name {
+/* .chat-bubble .character .name {
     @apply font-sans text-sm font-bold;
-}
+} */
 
 nav ul li a,
 nav ul li button
