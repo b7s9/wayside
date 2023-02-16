@@ -1,6 +1,6 @@
 import { Choice } from 'inkjs/engine/Choice';
 import { Story } from 'inkjs/engine/Story';
-import story_data from '../static/data/audio-test.json';
+import story_data from '../static/data/main.json';
 // @ts-ignore
 import * as sceneImages from '../static/img/dynamic-img/*.png';
 // @ts-ignore
@@ -100,7 +100,7 @@ class Game {
 
     async add_next_button() {
         let button = document.createElement("button");
-        button.innerText = ">";
+        button.innerText = "Next ->";
         button.addEventListener("click", () => {
             this.next_paragraph();
         });
