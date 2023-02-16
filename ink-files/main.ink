@@ -265,15 +265,21 @@
 	@audioPlay:egbert-choir
 	@image:egbert
     
-	Friend: Hey.
+	
+	@chatStart:egbert_neutral
+	Hey.
+	@chatEnd:null
     
 	They go back to looking around at their surroundings, each of their three eyes pointed in a different direction. They seem blissful.
     
-	Friend: Oh, I’m Egbert, by the way.
+    @chatStart:egbert_neutral
+	Oh, I’m Egbert, by the way.
     
-	Egbert: You don’t mind if I sit here, right?
+	You don’t mind if I sit here, right?
     
-	Egbert: Cool.
+	Cool.
+	
+	@chatEnd:null
     
 	…
 
@@ -281,11 +287,15 @@
     
 	…she smiles again, then points to her loincloth.
     
-	Egbert: Do you mind if I take this off?
+    @chatStart:egbert_neutral
+	Do you mind if I take this off?
+	@chatEnd:null
     
 	…
-    
+	
+    @chatStart:egbert_smug
 	Egbert: cool.
+	@chatEnd:null
     
 	She does.
     
