@@ -5,6 +5,8 @@ import story_data from '../static/data/main.json';
 import * as sceneImages from '../static/img/dynamic-img/*.png';
 // @ts-ignore
 import * as bgImages from '../static/img/bg-img/*.png';
+// @ts-ignore
+import * as emotes from '../static/img/emotes/*.png';
 import { dynamicLayerMap, bgLayerMap } from './layer-map';
 
 import gsap from 'gsap';
@@ -13,6 +15,9 @@ import { GameAudio } from './audio';
 gsap.registerPlugin(ScrollToPlugin);
 
 class Game {
+    private displayChat = false //if true, all following msgs treated as chat bubbles
+    private chatImgSrc = '' //the image source for chat box emotes. Use in context as emotes[chatImgSrc]
+
     story: Story;
     story_display: HTMLDivElement;
     text_display: HTMLDivElement;
@@ -55,6 +60,15 @@ class Game {
             game.audio.stopAudio(audio_name[1]);
         }
 
+        for (let char_emote of text.matchAll(/@chatStart:([\w\d-_]+)/g)) {
+            this.displayChat = true
+            this.chatImgSrc = emotes[char_emote[1]]
+        }
+        for (let char_emote of text.matchAll(/@chatEnd:([\w\d-_]+)/g)) {
+            this.displayChat = false
+            this.chatImgSrc = ''
+        }
+
         text = text.replace(/@([\w\d-_]+):([\w\d-_]+)/g, '');
         if (text.trim().length === 0 && this.story.canContinue) {
             this.next_paragraph();
@@ -74,11 +88,18 @@ class Game {
         let prev_paragraph = this.text_display.lastChild;
         gsap.to(prev_paragraph, { autoAlpha: 0.7, duration: 0.3 });
 
-        let paragraph = document.createElement("p");
-        // Careful here! Safe for now, because the text can only come from our own story
-        // We use innerHTML here so story writers can include <span> elements and stuff
-        // for all kinds of fun effects
-        paragraph.innerHTML = text;
+        let paragraph: HTMLElement
+
+        if (this.displayChat) {
+            paragraph = this.add_chat_bubble(this.chatImgSrc, text)
+        } else {
+            paragraph = document.createElement("p");
+            // Careful here! Safe for now, because the text can only come from our own story
+            // We use innerHTML here so story writers can include <span> elements and stuff
+            // for all kinds of fun effects
+            paragraph.innerHTML = text;
+        }
+
         this.text_display.appendChild(paragraph);
         await gsap.fromTo(paragraph, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 });
         gsap.to(this.text_display, { scrollTo: 'max', duration: 0.5 });
@@ -122,6 +143,24 @@ class Game {
 
         gsap.set(new_img, { autoAlpha: 0 });
         new_img.addEventListener("load", () => gsap.fromTo(new_img, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5 }));
+    }
+
+    add_chat_bubble(image_name: string, text_content: string) {
+        const chatBubbleContainer = document.createElement('div')
+        chatBubbleContainer.classList.add('chat-bubble')
+
+        const chatDialog = document.createElement('p')
+        chatDialog.classList.add('dialog')
+        chatDialog.textContent = text_content
+
+        const avatar = document.createElement('img')
+        avatar.src = image_name
+        avatar.classList.add('avatar')
+
+        chatBubbleContainer.appendChild(chatDialog)
+        chatBubbleContainer.appendChild(avatar)
+
+        return chatBubbleContainer
     }
 
     async renderBackground() {
