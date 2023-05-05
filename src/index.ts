@@ -109,8 +109,10 @@ class Game {
     async add_choices(choices: Choice[]) {
         for (let choice of choices) {
             let button = document.createElement("button");
+            button.classList.add('choice-button')
             button.innerText = choice.text;
             button.addEventListener("click", () => {
+                game.audio.playAudio('short-chime-2')
                 this.story.ChooseChoiceIndex(choice.index);
                 this.next_paragraph();
             });
@@ -121,9 +123,11 @@ class Game {
 
     async add_next_button() {
         let button = document.createElement("button");
-        button.innerText = "Next ->";
+        button.classList.add('next-button')
+        button.innerText = "Turn Page ->";
         button.addEventListener("click", () => {
             this.next_paragraph();
+            game.audio.playAudio('page-turn-1')
         });
         this.choice_display.replaceChildren(button);
         gsap.fromTo(button, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 });
