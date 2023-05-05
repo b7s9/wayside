@@ -12,13 +12,17 @@ interface AudioPlayers {
 }
 export class GameAudio {
     // masterFader: ToneAudioNode
-    volume: Tone.Volume; // master volume
+    master: Tone.Volume; // master volume
+    musVolume: Tone.Volume; // master volume
+    sfxVolume: Tone.Volume; // master volume
     // compressor: Tone.Compressor
     // limiter: Tone.Limiter
     audioSources: AudioPlayers;
 
     constructor() {
-        this.volume = new Tone.Volume(-6).toDestination();
+        this.master = new Tone.Volume(0).toDestination();
+        this.musVolume = new Tone.Volume(-6).connect(this.master);
+        this.sfxVolume = new Tone.Volume(-6).connect(this.master);
         // this.compressor = new Tone.Compressor({
         //     threshold: -9,
         //     ratio: 2,
@@ -35,7 +39,7 @@ export class GameAudio {
             this.audioSources[name] = new Tone.Player({
                 url: '' + url, //implicit string type conversion needed for some reason
                 loop: false
-            }).connect(this.volume);
+            }).connect(this.sfxVolume);
         }
         for (const [name, url] of Object.entries(audioMusicUrls)) {
             this.audioSources[name] = new Tone.Player({
@@ -44,7 +48,7 @@ export class GameAudio {
                 fadeOut: 1,
                 loop: true,
                 volume: 0
-            }).connect(this.volume);
+            }).connect(this.musVolume);
         }
         for (const [name, url] of Object.entries(audioAmbUrls)) {
             this.audioSources[name] = new Tone.Player({
@@ -53,7 +57,7 @@ export class GameAudio {
                 fadeOut: 2,
                 loop: true,
                 volume: 0,
-            }).connect(this.volume);
+            }).connect(this.sfxVolume);
         }
     }
 
@@ -65,5 +69,18 @@ export class GameAudio {
 
     stopAudio(filename: string) {
         this.audioSources[filename].stop();
+    }
+
+    setVolume(volume: number, destinationStr: string = 'master') {
+        let destination: Tone.Volume;
+        if (destinationStr === 'sfx') {
+            destination = this.sfxVolume
+        } else if (destinationStr === 'mus') {
+            destination = this.musVolume
+        } else {
+            destination = this.master
+        }
+
+        destination.volume.value = volume;
     }
 }

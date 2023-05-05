@@ -1,15 +1,5 @@
 const credits = [
 	{
-		name: 'Ben Schenerman',
-		roles: [
-			'Producer',
-			'Developer',
-			'UI Designer',
-			'Sound Designer',
-			'Composer',
-		]
-	},
-	{
 		name: 'Valentine Patin',
 		roles: [
 			'Producer',
@@ -19,16 +9,27 @@ const credits = [
 		]
 	},
 	{
-		name: 'Wester Coenraads',
+		name: 'Ben Schenerman',
 		roles: [
-			'Developer'
+			'Producer',
+			'Developer',
+			'UI Designer',
+			'Sound Designer',
+			'Composer',
 		]
 	},
+
 	{
 		name: 'The Kipper System',
 		roles: [
 			'Character Artist',
 			'Writer'
+		]
+	},
+	{
+		name: 'Wester Coenraads',
+		roles: [
+			'Developer'
 		]
 	},
 	{
@@ -68,7 +69,8 @@ const credits = [
 	{
 		name: 'Special Thanks',
 		roles: [
-			'John & Will Wiesenfeld',
+			'Marty, Dave, & Lange for considerable Maths/Programming help on the audio slider',
+			'John & Will Wiesenfeld. Thanks, HOg.',
 			'2.0 Discord'
 		]
 	}

@@ -39,8 +39,8 @@
                 <h1 class="inline-block w-full p-4 text-base text-white font-action sm:w-auto text-opacity-60">Wayside
                 </h1>
                 <ul class="flex flex-row space-x-4">
-                    <li><button>Volume</button></li>
-                    <li><button>Text</button></li>
+                    <li><button id="settings-menu-toggle">Settings</button></li>
+                    <!-- <li><button>Text</button></li> -->
                     <li>
                         <div class="spacer"></div>
                     </li>
@@ -54,10 +54,24 @@
             </div>
         </div>
     </div>
-    <div id="overlay-bg" class="absolute hidden w-full h-full bg-black bg-opacity-70"></div>
-    <div id="settings-menu" class="hidden p-6 m-auto menu">
-        <label for="volume-input">Volume</label>
-        <input type="range" name="volume-input" id="volume-input">
+    <div id="overlay-bg" class="absolute w-full h-full bg-black bg-opacity-70 z-40 top-0 left-0"></div>
+    <div id="settings-menu"
+        class="absolute top-1/3 left-1/3 p-6 space-y-6 m-auto menu z-50 bg-surface-800 text-white rounded-xl">
+        <button id="settings-menu-close">Close</button>
+
+        <div class="block">
+            <label class="block" for="master-volume-input">Master Volume</label>
+            <input class="vol" type="range" name="master-volume-input" id="master-volume-input" min="0" max="1"
+                step="0.01">
+        </div>
+        <div class="block">
+            <label class="block" for="mus-volume-input">Music Volume</label>
+            <input class="vol" type="range" name="mus-volume-input" id="mus-volume-input" min="0" max="1" step="0.01">
+        </div>
+        <div class="block">
+            <label class="block" for="sfx-volume-input">SFX Volume</label>
+            <input class="vol" type="range" name="sfx-volume-input" id="sfx-volume-input" min="0" max="1" step="0.01">
+        </div>
 
         <div class="form-control">
             <span class="input-label">Font Size</span>
