@@ -191,3 +191,81 @@ play_popup_button.addEventListener("click", () => {
     game.audio.playAudio('chime-1')
     game.audio.playAudio('amb-loop-1')
 });
+
+let overlayBg = document.getElementById('overlay-bg')
+let settingsMenu = document.getElementById('settings-menu')
+let settingsMenuButton = document.getElementById('settings-menu-toggle')
+settingsMenuButton?.addEventListener('click', (e) => {
+    console.log('click')
+    overlayBg?.classList.remove('hidden')
+    settingsMenu?.classList.remove('hidden')
+})
+
+let settingsMenuClose = document.getElementById('settings-menu-close')
+settingsMenuClose?.addEventListener('click', (e) => {
+    console.log('close')
+    overlayBg?.classList.add('hidden')
+    settingsMenu?.classList.add('hidden')
+
+})
+
+// let volumeInputs = document.querySelectorAll('.vol')
+// for(const [key, input] of volumeInputs){
+//     input.value[key]
+// }
+
+let masterVolumeInput = document.getElementById('master-volume-input')
+// masterVolumeInput.value = game.audio.master.volume.value;
+masterVolumeInput.value = 1;
+
+masterVolumeInput?.addEventListener('change', (e) => {
+    setVolume(e.currentTarget.value, 'master')
+})
+
+let musVolumeInput = document.getElementById('mus-volume-input')
+// musVolumeInput.value = game.audio.musVolume.volume.value;
+musVolumeInput.value = 1;
+
+musVolumeInput?.addEventListener('change', (e) => {
+    setVolume(e.currentTarget.value, 'mus')
+})
+
+let sfxVolumeInput = document.getElementById('sfx-volume-input')
+// sfxVolumeInput.value = game.audio.sfxVolume.volume.value;
+sfxVolumeInput.value = 1;
+
+sfxVolumeInput?.addEventListener('change', (e) => {
+    setVolume(e.currentTarget.value, 'sfx')
+})
+
+
+
+
+
+
+function setVolume(inputValue, volumeDestination) {
+    let x = Number(inputValue)
+
+    if (x == 0) {
+        game.audio.setVolume(-Number.MAX_VALUE, volumeDestination)
+        return false
+    }
+
+    // let g = (Math.exp(x) - 1) / (Math.E - 1)
+
+    // let base = 10000
+    // let g = (Math.pow(base, x) - 1) / (base - 1)
+    // let y = Math.log(g)
+    // let y = (g - 1) / g
+
+
+    //discord
+    let y = (x * 24) - 24
+    // let y = 10 * (g / 20)
+    // let y = Math.pow(10, (g / 20))
+
+    console.log('x = ' + x)
+    console.log('y = ' + y)
+    console.log('------------')
+    game.audio.setVolume(y, volumeDestination)
+}
