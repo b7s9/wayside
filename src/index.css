@@ -162,3 +162,47 @@ nav ul li .spacer {
          url('../static/font/grandstander-v11-latin-800.woff') format('woff'); 
   }
   
+
+  /* ---------------- Credits ---------------- */
+  body.credits {
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .credits .content-area {
+    margin: 0 auto;
+    max-width: 48rem;
+  }
+
+  #credits {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+  }
+
+  @media screen and (min-width:540px) {
+    #credits {
+        grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .credits .person {
+    margin: 2rem 0;
+  }
+
+  .credits .person span {
+    @apply text-2xl font-bold;
+  }
+
+  .credits .person ul {
+    list-style-position: inside;
+    list-style-type: disc;
+  }
+
+  .credits .person li {
+    opacity: 0.8;
+  }
+
+  .credits .link {
+    @apply underline text-lime-400 hover:bg-lime-300 hover:text-black;
+  }

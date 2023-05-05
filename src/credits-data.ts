@@ -2,15 +2,17 @@ const credits = [
 	{
 		name: 'Ben Schenerman',
 		roles: [
+			'Producer',
+			'Developer',
 			'UI Designer',
 			'Sound Designer',
 			'Composer',
-			'Developer'
 		]
 	},
 	{
 		name: 'Valentine Patin',
 		roles: [
+			'Producer',
 			'Environment Artist',
 			'Character Artist',
 			'Composer',
@@ -41,6 +43,33 @@ const credits = [
 		roles: [
 			'Narrative Designer',
 			'Writer'
+		]
+	},
+	{
+		name: 'Vincent Ryan',
+		roles: [
+			'Composer',
+			'Audio Engineer (Mastering)'
+		]
+	},
+	{
+		name: 'notsure',
+		roles: [
+			'Composer',
+		]
+	},
+	{
+		name: 'J.aebriel',
+		roles: [
+			'Composer',
+		]
+	},
+
+	{
+		name: 'Special Thanks',
+		roles: [
+			'John & Will Wiesenfeld',
+			'2.0 Discord'
 		]
 	}
 ]
