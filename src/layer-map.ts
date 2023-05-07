@@ -24,11 +24,6 @@ export let bgLayerMap = {
 		alt: 'some plants',
 		layer: 13
 	},
-	pottedPlant: {
-		src: 'Potted_Plant',
-		alt: 'a cute potted plant at your feet',
-		layer: 14
-	}
 
 }
 
@@ -129,13 +124,18 @@ export let dynamicLayerMap = {
 		layer: 11
 	},
 	uriah: {
-		src: '',
-		alt: '',
+		src: 'Uriah',
+		alt: 'Uriah the sage in fine robes',
 		layer: 11
 	},
 	jellychair: {
 		src: 'Jellyfish_Chair',
 		alt: 'The comfiest chair youve ever seen',
 		layer: 12
+	},
+	plant: {
+		src: 'Potted_Plant',
+		alt: 'a cute potted plant at your feet',
+		layer: 14
 	}
 }

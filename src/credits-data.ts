@@ -54,6 +54,12 @@ const credits = [
 		]
 	},
 	{
+		name: 'Moss Blanket',
+		roles: [
+			'Character Artist',
+		]
+	},
+	{
 		name: 'notsure',
 		roles: [
 			'Composer',
