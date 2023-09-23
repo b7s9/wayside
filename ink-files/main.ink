@@ -13,22 +13,40 @@ VAR decorationCount = 0
 === choice1 ===
 	+ [inspect fish] -> littimer
 	+ [inspect coffin] -> coffin
+	+ [DEBUG: inspect wooly friend] -> ljs
+	+ [DEBUG: inspect pylon] -> pylon
+	+ [DEBUG: inspect sage] -> uriah
+	+ [DEBUG: inspect sword] -> weapons
+	+ [DEBUG: inspect friend] -> egbert
+	+ [DEBUG: inspect cauldron] -> cauldron
+	+ [DEBUG: inspect hippie] -> pecksniff
+	+ [DEBUG: inspect pile of junk] -> drone
 
 === choice2 ===
 	+ [inspect wooly friend] -> ljs
 	+ [inspect pylon] -> pylon
-    
+    + [DEBUG: inspect sword] -> weapons
+	+ [DEBUG: inspect friend] -> egbert
+	+ [DEBUG: inspect cauldron] -> cauldron
+	+ [DEBUG: inspect hippie] -> pecksniff
+	+ [DEBUG: inspect pile of junk] -> drone
+
 // Jellychair will happen here
 
 // content in choice3 is not yet complete
 === choice3 ===
 	+ [inspect sage] -> uriah
 	+ [inspect sword] -> weapons
-    
+    + [DEBUG: inspect cauldron] -> cauldron
+	+ [DEBUG: inspect hippie] -> pecksniff
+	+ [DEBUG: inspect pile of junk] -> drone
+
 === choice4 ===
 	+ [inspect friend] -> egbert
 	+ [inspect cauldron] -> cauldron
-	
+	+ [DEBUG: inspect hippie] -> pecksniff
+	+ [DEBUG: inspect pile of junk] -> drone
+
 // Plant will happen here
     
 === choice5 ===
