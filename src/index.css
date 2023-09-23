@@ -11,7 +11,8 @@ button {
 }
 
 .game-img {
-    @apply object-contain w-full h-fit absolute top-0 left-0;
+    /* @apply object-contain w-full h-fit absolute top-0 left-0; */
+    @apply object-scale-down w-full absolute top-0 left-0 md:max-h-[95vh];
 }
 
 .chat-bubble .dialog {
