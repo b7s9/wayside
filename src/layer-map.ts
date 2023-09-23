@@ -98,22 +98,22 @@ export let dynamicLayerMap = {
 		alt: 'A crashed satellite with a glowing center and solar panel appendages',
 		layer: 8,
 	},
-	peckSniff: {
+	pecksniff: {
 		src: 'Pecksniff_slime',
 		alt: 'Pecksniff covered in a layer of green slime',
 		layer: 8
 	},
-	peckSniffSlime: {
+	pecksniffSlime: {
 		src: 'Pecksniff_slime',
 		alt: 'Pecksniff covered in a layer of green slime',
 		layer: 8
 	},
-	peckSniffDry: {
+	pecksniffDry: {
 		src: 'Pecksniff_dry',
 		alt: 'Pecksniff a party animal with a gator-like nose',
 		layer: 8
 	},
-	peckSniffPossessed: {
+	pecksniffPossessed: {
 		src: 'Pecksniff_dry',
 		alt: 'Pecksniff a party animal with a gator-like nose',
 		layer: 8
