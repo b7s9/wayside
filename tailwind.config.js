@@ -10,6 +10,10 @@ module.exports = {
                     800: '#1E1826'
                 }
             },
+
+            screens: {
+                'md': '820px'
+            }
         },
 
         fontFamily: {
