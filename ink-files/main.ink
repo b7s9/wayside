@@ -55,18 +55,22 @@ Looking ahead, you consider what you’ll need next…
 	+ [DEBUG: Drone] -> drone
 
 === choice4 ===
-Taste
+Your belly rumbles.
+
+You realise you have a dull craving for…
 
 
-	+ [inspect friend] -> egbert
-	+ [inspect cauldron] -> cauldron
+	+ [Fish] -> egbert
+	+ [Soup] -> cauldron
 	+ [DEBUG: Pecksniff] -> pecksniff
 	+ [DEBUG: Drone] -> drone
 
 // Plant will happen here
 
 === choice5 ===
-sound
+Sitting there, you absentmindedly recall a song.
+
+It begins with…
 
 	+ [Beats] -> pecksniff
 	+ [Melody] -> drone
@@ -215,7 +219,7 @@ sound
 	-> choice2
 
 // --------------------------------
-// lexis, Jude, Sparks
+// Lexis, Jude, Sparks
 // --------------------------------
 
 === ljs ===
@@ -351,7 +355,7 @@ sound
 
 	Before you know it, the procession has reached your location, along with all the locals following them. It’s a lot more people than you’re used to being here, and you feel very nervous with such a big crowd.
 
-	The procession continues forward, going past the camp and wading out into the water, where the most persistent hangers-on finally break off and hang back to watch with the crowd. They’re definitely not walking on the water, but you could swear they aren’t sinking nearly as deep as they should be.
+	The procession continues forward, going past the camp and wading out into the water, where the most persistent hangers-on finally break off and hang back to watch with the crowd. They Salvopriests definitely aren’t walking on the water, but you could swear they aren’t sinking nearly as deep as they should be.
 
 	The Salvopriests form a circle around a spot a ways into the water, and they finally stop chanting with a decisive shout on the last beat.
 
@@ -440,7 +444,10 @@ sound
 
 	But then you start to hear a voice. It's a whisper at first. But over time it becomes clearer, and more persuasive.
 
-	"sit on me :)"
+	@chatStart:jellychair_neutral
+	sit on me :)
+
+	@chatEnd:null
 
 	The voice is soft and squeaky, like it's some tiny creature on your shoulder, or a voice inside your head. But you're sure it's not your own mind playing tricks on you.
 
@@ -749,6 +756,9 @@ You go to the nearby woods, and unexpectedly find yourself in unfamiliar surroun
 // --------------------------------
 === plant ===
 
+	A few hours pass.
+
+
 	It’s a warm night; you’re sitting enjoying the sounds of the crickets, and you’re just about to go to bed when you hear a rustling nearby.
 
 	@audioPlay:waterways
@@ -860,6 +870,8 @@ But you know, it's cool if you don't want one. Use responsibly and all that.
 
 	It's only then that you notice the similarly multi-coloured protrusions atop Pecksniff's head pulse. He awaits an answer.
 
+	Do you want a party hat?
+
 	* [Yes] -> pecksniff_choice_take
 	* [No] -> pecksniff_choice_refuse
 	
@@ -956,7 +968,7 @@ Ya don’t need any a’that to have a good time, ay!
 	
 	As the machine struggles to kill you, the stammering klaxon you heard earlier starts up again. It almost seems to harmonise with the whining, creating a disjointed electronic melody.
 	
-	After a while, you come to the conclusion that the machine loses no threat. You also become certain there's no way to turn it off.
+	After a while, you come to the conclusion that the machine poses no threat. You also become certain there's no way to turn it off.
 	
 	Hours pass like this, with the machine making its miserable mechanical music. The hunk of twisted metal is too heavy and too unwieldy to move, so you just leave it there.
 	
@@ -973,6 +985,9 @@ Ya don’t need any a’that to have a good time, ay!
 // Bunting
 // --------------------------------
 === bunting ===
+
+	A few hours pass.
+
 
 	The sound of familiar music grows steadily in the distance. It's faint at first, but the sound is unmistakable: the song of the circus.
 	
@@ -1038,7 +1053,7 @@ Ya don’t need any a’that to have a good time, ay!
 
 @audioPlay:rust-magic
 
-{decorationCount > 5: you preferred decorations|you preferred characters}
+{decorationCount > 2: you preferred decorations|you preferred characters}
 
 @audioStop:rust-magic
 
