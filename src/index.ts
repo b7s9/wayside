@@ -24,6 +24,7 @@ class Game {
     choice_display: HTMLDivElement;
     image_container: HTMLDivElement;
     audio: GameAudio;
+    active_image: string;
 
     constructor() {
         this.story_display = document.querySelector("#story-display")!;
@@ -133,7 +134,7 @@ class Game {
         gsap.fromTo(button, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 });
     }
 
-    add_image(image_name: string, is_background: boolean = false) {
+    add_image(image_name: string, is_background: boolean = false, is_fire_animation: boolean = false) {
         // WARNING: only works with PNG images
         let new_img = document.createElement("img");
 
@@ -145,8 +146,16 @@ class Game {
         new_img.style.zIndex = zIndex.toString();
         game.image_container.appendChild(new_img);
 
+        !is_background && new_img.classList.add("current-img")
+
         gsap.set(new_img, { autoAlpha: 0 });
         new_img.addEventListener("load", () => gsap.fromTo(new_img, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5 }));
+
+        is_fire_animation && new_img.classList.add("fire-animation")
+
+        setTimeout(() => {
+            new_img.classList.remove("current-img")
+        }, 1000);
     }
 
     add_chat_bubble(image_name: string, text_content: string) {
@@ -170,7 +179,13 @@ class Game {
     async renderBackground() {
         for (let [imgName, img] of Object.entries(bgLayerMap)) {
             // this.add_image(img.src, img.layer, true)
-            this.add_image(imgName, true)
+
+            if (imgName === 'fireLight') {
+                this.add_image(imgName, true, true)
+            } else {
+                this.add_image(imgName, true)
+            }
+
         }
     }
 

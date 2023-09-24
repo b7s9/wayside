@@ -19,6 +19,11 @@ export let bgLayerMap = {
 		alt: 'Some tiny islands next to you',
 		layer: 10
 	},
+	fireLight: {
+		src: 'Fire_Light',
+		alt: 'Flickering of the fire',
+		layer: 13
+	},
 	foreground: {
 		src: 'Foreground_Plants',
 		alt: 'some plants',
