@@ -13,6 +13,47 @@ button {
 .game-img {
     /* @apply object-contain w-full h-fit absolute top-0 left-0; */
     @apply object-scale-down w-full absolute top-0 left-0 md:max-h-[95vh];
+    filter: drop-shadow(0 0 0 transparent);
+    transition: filter ease-in-out 2s;
+}
+
+.current-img {
+  filter: drop-shadow(1px 1px 9px #b4af2f);
+}
+
+.fire-animation {
+  animation: fireloop 10s linear infinite normal both;
+  opacity: 0.5;
+}
+
+@keyframes fireloop {
+  0% {
+    opacity: 0.5
+  }
+
+  30% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 0.37
+  }
+
+  60% {
+    opacity: 0.55;
+  }
+
+  75% {
+    opacity: 0.43;
+  }
+
+  80% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 0.5
+  }
 }
 
 .chat-bubble .dialog {
