@@ -15,8 +15,8 @@ You sit alone, with your feet in the slowly-lapping lakewater.
 
 The water is…
 
-	+ [Salty] -> littimer
-	+ [Silty] -> coffin
+	+ Salty -> littimer
+	+ Silty -> coffin
 	+ [DEBUG: LJS] -> ljs
    	+ [DEBUG: pylon] -> pylon
 	+ [DEBUG: uriah] -> uriah
@@ -24,7 +24,7 @@ The water is…
 	+ [DEBUG: Egbert] -> egbert
 	+ [DEBUG: cauldron] -> cauldron
 	+ [DEBUG: Pecksniff] -> pecksniff
-   	+ [DEBUG: Drone] -> drone
+    + [DEBUG: Drone] -> drone
 
 === choice2 ===
 A faint gale of perfumed air makes its way through the camp.
@@ -49,7 +49,7 @@ Looking ahead, you consider what you’ll need next…
 
 	+ [Wisdom] -> uriah
 	+ [Weapons] -> weapons
-	+ [DEBUG: Egbert] -> egbert
+    + [DEBUG: Egbert] -> egbert
 	+ [DEBUG: cauldron] -> cauldron
 	+ [DEBUG: Pecksniff] -> pecksniff
 	+ [DEBUG: Drone] -> drone
@@ -341,7 +341,7 @@ It begins with…
 
 	It’s a harmonious, low droning, interlaced with rhythmic chantings of – so far as you can tell – gibberish.
 
-	It takes you a little bit to make the connection, but you become sure that the sound is the ritual chanting of the Salvopriests.
+	It takes you a little while to make the connection, but you become sure that the sound is the ritual chanting of the Salvopriests.
 
 	As it gets closer, you decide to move from your regular spot at the pyre and go take a look.
 
@@ -355,7 +355,7 @@ It begins with…
 
 	Before you know it, the procession has reached your location, along with all the locals following them. It’s a lot more people than you’re used to being here, and you feel very nervous with such a big crowd.
 
-	The procession continues forward, going past the camp and wading out into the water, where the most persistent hangers-on finally break off and hang back to watch with the crowd. They Salvopriests definitely aren’t walking on the water, but you could swear they aren’t sinking nearly as deep as they should be.
+	The procession continues forward, going past the camp and wading out into the water, where the most persistent hangers-on finally break off and hang back to watch with the crowd. The Salvopriests definitely aren’t walking on the water, but you could swear they aren’t sinking nearly as deep as they should be.
 
 	The Salvopriests form a circle around a spot a ways into the water, and they finally stop chanting with a decisive shout on the last beat.
 
@@ -536,7 +536,7 @@ It begins with…
 	@chatStart:uriah_neutral
 	I see the darkness in it, too. Those flies were just as alive as you or I, and I silently mourn every one.
 
-	But what am I gonna do? I’m a frog! I eat flies. Nothing in this world stays forever, no matter how precious, how sacred. And When I die, the flies will get their revenge!
+	But what am I gonna do? I’m a frog! I eat flies. Nothing in this world stays forever, no matter how precious, how sacred. And when I die, the flies will get their revenge!
 
 	@chatEnd:null
 
@@ -547,7 +547,7 @@ It begins with…
 
 	There are many who have a hard time adjusting to new circumstances; mutations, changing ideas about the world…
 
-	But life, life is always the same. Life is change.
+	…but life? Life is always the same. Life is change.
 
 	@chatEnd:null
 
@@ -559,8 +559,6 @@ It begins with…
 	@chatEnd:null
 
 	A long moment of silence passes, and the old sage continues to soak in the breeze. It’s inspirational – and you find yourself enjoying the scenery just a little more than you did before.
-
-	Eventually, Uriah stands and turns towards you. They bow their head in respect, offer salutations, and shuffle on back the way they came.
 
 	@audioStop:uriah
 
@@ -653,11 +651,11 @@ It begins with…
 	A slight breeze goes by, and you realise that everything is uncharacteristically, almost unbelievably still. It’s almost like this person is radiating calm into the environment.
 
 	@chatStart:egbert_neutral
-	You know I almost died, like, this morning.
+	You know, I almost died. Like, this morning.
 
 	@chatEnd:null
 
-	Despite the perilous nature of this comment, the sense of calm in neither the person, nor the environment so much as wavers…
+	Despite the perilous nature of this comment, the sense of calm in neither the person, nor the environment so much as wavers.
 
 	@chatStart:egbert_neutral
 
@@ -669,10 +667,10 @@ It begins with…
 
 	@chatEnd:null
 
-	…for the first time you see this person frown, and you feel a deep, intense anger coming from them, seemingly mad at the whole universe. Somehow the calm is not disrupted by this either. Not in the slightest…
+	For the first time you see Egbert frown, and you feel a deep, intense anger coming from her. It’s like she’s mad at the whole universe. But somehow the calm is not disrupted by this either. Not in the slightest.
 
 	@chatStart:egbert_mad
-	…It was a bloodbath…
+	It was a bloodbath…
 
 	…I was the only one to survive.
 
