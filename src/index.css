@@ -10,6 +10,10 @@ button {
   @apply bg-lime-400 text-black hover:bg-white hover:text-lime-800;
 }
 
+.repeated-choice-text {
+  @apply text-lime-400;
+}
+
 .game-img {
     /* @apply object-contain w-full h-fit absolute top-0 left-0; */
     @apply object-scale-down w-full absolute top-0 left-0 md:max-h-[95vh];

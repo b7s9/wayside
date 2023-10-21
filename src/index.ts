@@ -25,6 +25,7 @@ class Game {
     image_container: HTMLDivElement;
     audio: GameAudio;
     active_image: string;
+    last_choice: string
 
     constructor() {
         this.story_display = document.querySelector("#story-display")!;
@@ -42,6 +43,11 @@ class Game {
 
     async next_paragraph() {
         await this.clear_choices();
+
+        if (this.last_choice) {
+            this.add_text(this.last_choice, true)
+            this.last_choice = ''
+        }
 
         let text = this.story.Continue()!;
 
@@ -85,7 +91,7 @@ class Game {
         }
     }
 
-    async add_text(text: string) {
+    async add_text(text: string, isChoice: boolean = false) {
         let prev_paragraph = this.text_display.lastChild;
         gsap.to(prev_paragraph, { autoAlpha: 0.7, duration: 0.3 });
 
@@ -95,6 +101,7 @@ class Game {
             paragraph = this.add_chat_bubble(this.chatImgSrc, text)
         } else {
             paragraph = document.createElement("p");
+            isChoice && paragraph.classList.add('repeated-choice-text')
             // Careful here! Safe for now, because the text can only come from our own story
             // We use innerHTML here so story writers can include <span> elements and stuff
             // for all kinds of fun effects
@@ -114,6 +121,7 @@ class Game {
             button.innerText = choice.text;
             button.addEventListener("click", () => {
                 game.audio.playAudio('short-chime-2')
+                this.setLastChoice(choice.text)
                 this.story.ChooseChoiceIndex(choice.index);
                 this.next_paragraph();
             });
@@ -125,7 +133,7 @@ class Game {
     async add_next_button() {
         let button = document.createElement("button");
         button.classList.add('next-button')
-        button.innerText = "Turn Page ->";
+        button.innerText = "Next ->";
         button.addEventListener("click", () => {
             this.next_paragraph();
             game.audio.playAudio('page-turn-1')
@@ -187,6 +195,11 @@ class Game {
             }
 
         }
+    }
+
+    setLastChoice(buttonText) {
+        if (buttonText.indexOf(' ') > -1) return false;
+        this.last_choice = buttonText;
     }
 
     async clear_choices() {
