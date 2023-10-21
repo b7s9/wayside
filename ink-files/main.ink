@@ -15,30 +15,30 @@ You sit alone, with your feet in the slowly-lapping lakewater.
 
 The water is…
 
-	+ Salty -> littimer
-	+ Silty -> coffin
-	+ [DEBUG: LJS] -> ljs
+	+ [Salty] -> littimer
+	+ [Silty] -> coffin
+	+ [DEBUG: LJS] -> LJS
    	+ [DEBUG: pylon] -> pylon
-	+ [DEBUG: uriah] -> uriah
-	+ [DEBUG: weapons] -> weapons
-	+ [DEBUG: Egbert] -> egbert
-	+ [DEBUG: cauldron] -> cauldron
-	+ [DEBUG: Pecksniff] -> pecksniff
-    + [DEBUG: Drone] -> drone
+    	+ [DEBUG: uriah] -> uriah
+    	+ [DEBUG: weapons] -> weapons
+    	+ [DEBUG: Egbert] -> egbert
+    	+ [DEBUG: cauldron] -> cauldron
+    	+ [DEBUG: Pecksniff] -> pecksniff
+   	+ [DEBUG: Drone] -> drone
 
 === choice2 ===
 A faint gale of perfumed air makes its way through the camp.
 
 There’s a trace of…
 
-	+ [Cotton] -> ljs
+	+ [Cotton] -> LJS
 	+ [Metal] -> pylon
 	+ [DEBUG: uriah] -> uriah
-	+ [DEBUG: weapons] -> weapons
-	+ [DEBUG: Egbert] -> egbert
-	+ [DEBUG: cauldron] -> cauldron
-	+ [DEBUG: Pecksniff] -> pecksniff
-	+ [DEBUG: Drone] -> drone
+    	+ [DEBUG: weapons] -> weapons
+    	+ [DEBUG: Egbert] -> egbert
+    	+ [DEBUG: cauldron] -> cauldron
+    	+ [DEBUG: Pecksniff] -> pecksniff
+    	+ [DEBUG: Drone] -> drone
 
 // Jellychair will happen here
 
@@ -49,10 +49,10 @@ Looking ahead, you consider what you’ll need next…
 
 	+ [Wisdom] -> uriah
 	+ [Weapons] -> weapons
-    + [DEBUG: Egbert] -> egbert
-	+ [DEBUG: cauldron] -> cauldron
-	+ [DEBUG: Pecksniff] -> pecksniff
-	+ [DEBUG: Drone] -> drone
+	+ [DEBUG: Egbert] -> egbert
+    	+ [DEBUG: cauldron] -> cauldron
+    	+ [DEBUG: Pecksniff] -> pecksniff
+    	+ [DEBUG: Drone] -> drone
 
 === choice4 ===
 Your belly rumbles.
@@ -63,7 +63,7 @@ You realise you have a dull craving for…
 	+ [Fish] -> egbert
 	+ [Soup] -> cauldron
 	+ [DEBUG: Pecksniff] -> pecksniff
-	+ [DEBUG: Drone] -> drone
+    	+ [DEBUG: Drone] -> drone
 
 // Plant will happen here
 
@@ -222,102 +222,121 @@ It begins with…
 // Lexis, Jude, Sparks
 // --------------------------------
 
-=== ljs ===
+=== LJS ===
 	It’s a peaceful night, and the nocturnal denizens of the area are out and about, filling the air with their various calls and croaks – mostly croaks. You decide to close your eyes and contemplate the soundscape for a time, letting it all soak in.
 
 	Then, suddenly, you hear a voice cutting through the ambience.
 
-	@audioPlay:bubbly
-
-	@image:ljs
-
 	@chatStart:jude_neutral
 	Is that a CAMPYRE!?
-
 	@chatEnd:null
 
-	You try to ignore the commotion and keep your eyes closed. But then you hear a rhythmic series of huge, loud splashes approaching your position. You open your eyes and peer out across the misty darkness of the lake, and hear a flustered shout.
+You try to ignore the commotion and keep your eyes closed. But then you hear a rhythmic series of huge, loud splashes approaching your position. You open your eyes and peer out across the misty darkness of the lake, and see the shape of a large creature barreling towards you.
+
+	@audioPlay:bubbly
+	@image:ljs
 
 	@chatStart:lexis_neutral
 	SLOW DOWN, JUDE!
-
 	@chatEnd:null
 
-	At first, you don’t see anything more than a vague, gargantuan shape. Something big is running right for you. You get ready to run, but as it gets closer you start to make out some fuzzy features. Not ‘fuzzy’ as in ‘hazy’ or ‘blurry’, ‘fuzzy’ as in…well…covered in fuzz!
+	The massive creature clumsily skids to a halt, kicking up a wave that falls just shy of extinguishing your pyre. In the firelight, the creature is revealed to be covered head to toe in long, thick fur. It’s an unusual sight – most creatures you've seen have only frequent patches of fur at most.
 
-	You’ve seen creatures with hair and fur before, but this one is covered head to toe in long, thick fur…
+	With the added light you can also confirm what you thought must have been a trick of the light or tiredness: the creature has two heads.
 
-	…better make that “heads to toe”, actually. The figure has two distinct heads, and two distinct necks – one of them with an overjoyed expression and a pinpoint focus on the pyre at the centre of your camp.
-
-	The other head is wearing an exasperated and overwhelmed expression, and seems to be trying to pull their shared body away, in the other direction.
-
-	@chatStart:lexis_neutral
-	JUDE! NOT AGAIN! YOU’RE GONNA SOAK THE PYRE!
-
-	@chatEnd:null
-
-	The excited head – Jude, apparently — suddenly adopts a near-mortified expression, and instantly starts pulling away as well. The left half of the animal tries to plant its limbs in the ground to completely slow its momentum and the right half skitters to a halt, causing a big wave to build in front of them.
-
-	Luckily, the wave dissipates before it reaches the pyre. In a much quieter voice – though one that’s still relatively loud due to the creature’s size – the recuperating right head speaks
-
-	@chatStart:lexis_neutral
-	…okay. Now that we’ve stopped, let’s walk over there. SLOWLY.
-
-	@chatStart:lexis_neutral
-	Right. Sorry for getting too excited…
-
-	@chatEnd:null
-
-	The now-resynchronised creature walks more elegantly toward you.
-
-	The head on the left, Jude, eyes the pyre with glee; then, looking around, it spots you sitting.
+	The head on the left moves to speak with an excited expression.
 
 	@chatStart:jude_neutral
-	Hey! Do you have any gooey puffballs?
-
-	@chatStart:lexis_neutral
-	They don’t know what you’re talking about, Jude. Let’s at least introduce ourselves first.
-
-	@chatStart:jude_neutral
-	Right, sorry.	
-
+	HIYA! CAN WE SIT BY YOUR CAMPYRE?!
 	@chatEnd:null
 
-	The figure turns to address you, right half leading.
+	Their voice is almost deafeningly loud. With how big they are, even speaking softly would be quite loud, but on top of that they seem to be yelling out of excitement.
 
-	@chatStart:lexis_neutral	
+	@chatStart:lexis_neutral
+	Jude. Inside voice, remember?
+	@chatEnd:null
+
+	@chatStart:jude_neutral
+	Oh! O-oh…right.
+	@chatEnd:null
+
+	After the reminder from the head on the right, the left head – Jude, apparently – speaks again in a plenty-audible whisper.
+
+	@chatStart:jude_neutral
+	Ahem. Can we sit by your campyre?
+	@chatEnd:null
+
+	You indicate that yes, they certainly can. You're wary, but this person – or rather, these people – seem to be well-meaning. Besides, if they wanted to do you harm, it would surely have been done by now.
+
+	@chatStart:lexis_neutral
+	Sorry for that sudden entrance. Allow us to introduce ourselves.
+	@chatEnd:null
+
+	@chatStart:lexis_neutral
 	I’m Lexis – but you can call me Lex.
-	
-@chatStart:jude_neutral
-	I’M JUDE!
-
 	@chatEnd:null
 
-	Jude seems to have a habit of yelling; their voice is strikingly loud even when speaking in a softer tone. Your ears hurt.
+	@chatStart:jude_neutral
+	I’m Jude!
+	@chatEnd:null
 
 	@chatStart:lexis_neutral
 	And this here is Sparks.
-
-@chatStart:sparks_neutral
-	!!!
-
 	@chatEnd:null
 
-	Lex indicates their tail and, to your surprise, it waves at you. The paw on the end of it seems to have a mind of its own.
-
-	@chatStart:lexis_neutral	
-	We’re explorers, just passing through these parts. Mind if we sit with you?	
-
+	@chatStart:sparks_neutral
+	...
 	@chatEnd:null
 
-	Jude is chafing with anticipation, and seems ready to burst with excitement. They seem to be waiting for Lex to stop speaking, you wonder if—
+	Lex indicates their tail and, to your surprise, it waves at you. It seems to have a mind of its own, and occasionally fidgets with the creature’s paraphernalia or their surroundings.
+
+	@chatStart:lexis_neutral
+	We’re explorers, just passing through these parts.
+	@chatEnd:null
+
+	The tail – Sparks – seems to perk up, as if remembering something, and taps Lex's shoulder.
+
+	@chatStart:lexis_neutral
+	Oh! Right! We're looking for food—
+	@chatEnd:null
+
+Lexis looks backward at Sparks.
+
+	@chatStart:lexis_neutral
+	…aaand, uh, study material – mushrooms, specifically. For both things.
+	@chatEnd:null
 
 	@chatStart:jude_neutral
-	DO YOU HAVE ANY GOOEY PUFFBALLS!?
-
+	We can only eat mushrooms! And Sparks here loves studying 'em!
 	@chatEnd:null
 
-	You’re still not sure what a gooey puffball is, and your ears are starting to ring from all of Jude’s shouting, but you figure this friendly, threefold creature will at least be fun to hang out with.
+	You notice the wicker basket hanging on their side, full of mushrooms of all kinds – many you've never seen before. You tell them about the best spots you know of in the area for finding mushrooms.
+
+	@chatStart:lexis_neutral
+	That sounds great! Thanks for the help!
+	@chatEnd:null
+
+	@chatStart:jude_neutral
+	But we're not leaving yet, right? We're staying by the campyre? At least a little longer?
+	@chatEnd:null
+
+	@chatStart:lexis_neutral
+	Yes, I'm fine with staying here tonight, as long as we’re welcome…
+	@chatEnd:null
+
+	Lex indicates to you as they say this, and you have no objections. These people seem quite pleasant, if sometimes rowdy.
+
+	@chatStart:lexis_neutral
+	And Sparks, you're fine with it?
+	@chatEnd:null
+
+	@chatStart:lexis_neutral
+	…
+	@chatEnd:null
+
+	Sparks gives an enthusiastic thumbs-up, and with that, it's settled. Your new friends settle in, lying down on their four legs facing the pyre.
+
+	Lex almost immediately yawns and lays their head down to sleep, Jude stays up, her eyes transfixed by the glowing campyre, and Sparks pulls out a notebook and pencil from a pocket on their side and starts writing. It's a peaceful scene, and soon you find yourself drifting off into a dreamy sleep...
 
 	@audioStop:bubbly
 
@@ -700,54 +719,137 @@ It begins with…
 // --------------------------------
 === cauldron ===
 	~ decorationCount += 1
-	
-It comes time to go beyond the camp to forage for some mid-day grub.
 
-You go to the nearby woods, and unexpectedly find yourself in unfamiliar surroundings. After scanning the area for any recognizable landmarks, you quickly concede that you are lost.
-
-	Trudging onward in hopes of finding your way again somehow, you stumble into a small clearing by a river. There’s a modest wooden hut there, with a thatched roof and smoke rising from a stone chimney.
-
-	Whoever is in this hut could help you find your way home, or they could be hostile. You’ve heard stories of creatures practising dark magic in these woods.
+	It comes time to go beyond the camp to forage for some midday grub.
 
 	@audioPlay:foraging-no-sfx
 
-	Cautiously, you walk up to the door and, feeling bold, knock firmly. You are greeted by a short slug-woman, with long eyestalks and large tentacles with which she opened the door.
+	In the nearby woods, you unexpectedly find yourself in unfamiliar surroundings. Things aren’t where they used to be, and after scanning the area for any recognisable landmarks, you quickly concede that you are lost.
+
+	Trudging onward in the hope of somehow finding your way again, you stumble into a small clearing by a river. There’s a modest wooden hut, with a thatched roof and smoke rising from a cobblestone chimney.
+
+	Whoever lives there could help you find your way home – but they could also be hostile. There are stories of creatures practising dark magic in these woods.
+
+Feeling bold, you knock on the door. Moments later, you are greeted by a short slug-woman with long eye stalks and tentacles.
+
+By her tattered black shawl and the characteristic pointed black hat, you are certain that this slug-woman is, indeed, a practitioner of the dark arts. Judging by the large bubbling cauldron over her fire, she is a soup-witch, to be precise.
+
+	Though you would expect to run, you find yourself oddly unshaken. Perhaps it’s the witch’s disarming appearance, or her curious gaze. Regardless, you gather your courage and ask the soup-witch for directions.
+
+	The soup-witch laughs gleefully, and gives you directions back to the lake in a sing-song rhyme. The directions are clear and the riddle is easy to remember, so you move to thank the witch and go on your way.
+
+	Before you can get out the first word, however, the witch speaks again.
+
+	@chatStart:soupwitch_neutral
+	You look like someone who likes riddles and games!
+	I propose a wager – I’ll ask you three riddles, and if you can answer a single one, I’ll grant you a gift!
+	But beware. Fail all three, and I will cook you into my soup.
+	@chatEnd:null
+
+	You speak only a syllable of protest before she expresses her delight that you’ve agreed to play along, and starts reciting the first riddle with a flair and a gleam in her eye.
+
+	@chatStart:soupwitch_neutral
+	An egg, an oil, an acid,
+	Makes quite a creamy treat,
+	But to bring back what was put in,
+	You'll have to perform this feat!
+	@chatEnd:null
+
+	You consider your answer…
+
+	* [Milk?] -> cauldron_part_1
+	* [Layers?] -> cauldron_part_1
+	* [Uhhh…] -> cauldron_part_1
+
+=== cauldron_part_1 ===
+
+The soup-witch cackles with glee.
+
+	@chatStart:soupwitch_neutral
+	Demulsification!
+	@chatEnd:null
+
+	You've never heard that word. You can only guess that it's the name of a dark arts technique.
+
+	She grins widely as she begins the next riddle.
+
+	@chatStart:soupwitch_neutral
+	Too cold and it stays white,
+	Too hot and it gets black,
+	But at just the right heat, this happens,
+	And makes a sweet brown snack!
+	@chatEnd:null
+
+	You consider your answer…
+
+	* [Chocolate?] -> cauldron_part_2
+	* [Heat?] -> cauldron_part_2
+	* [Uhhh…] -> cauldron_part_2
+
+=== cauldron_part_2 ===
+
+	She shakes her head and tuts at you before revealing the answer in a sing-song voice.
+
+	@chatStart:soupwitch_neutral
+	Caramelization!
+	@chatEnd:null
+
+	You feel like you could have guessed that one – you've seen caramels before. You weren’t much of a fan of the tasteless clear film.
+
+	@chatStart:soupwitch_neutral
+	My next riddle is the most challenging one yet!
+	You'd better think long and hard about it if you want to avoid being soup.
+	@chatEnd:null
+
+	There's a frightening glee on her face when she sees how nervous you're getting.
+
+	She takes a deep breath and recites the last riddle.
+
+	@chatStart:soupwitch_neutral
+	SOYBEAN OIL, WATER, BUTTERMILK, VINEGAR, SUGAR, EGG YOLKS, SALT, CONTAINS LESS THAN 2% OF WHEY (FROM MILK), MODIFIED FOOD STARCH, DRIED ONION, MONOSODIUM GLUTAMATE, PHOSPHORIC ACID, XANTHAN GUM, SORBIC ACID AND CALCIUM DISODIUM EDTA (TO PROTECT FLAVOR), DRIED GARLIC, SPICES, POLYSORBATE 60. What am I?
+	@chatEnd:null
+
+	* [What?] -> cauldron_part_3
+	* [No idea.] -> cauldron_part_3
+	* [Uhhh…] -> cauldron_part_3
+
+=== cauldron_part_3 ===
+
+	With a dire look on her face, she informs you that the answer is, in fact…
+
+	@chatStart:soupwitch_neutral
+Buttermilk ranch!
+@chatEnd:null
+
+	So, that’s it. You’ve heard three riddles and failed to answer a single one correctly. You prepare for the worst.
+
+	But the soup-witch’s malicious expression suddenly gives way to a burst of gleeful cackling, and she places a reassuring tentacle on your shoulder.
+
+	@chatStart:soupwitch_neutral
+	Soup-witches don’t cook living creatures. Not usually.
+	Besides, you’re not plump enough to be worth your broth.
+	Apologies for bullying your leg, dear.
+	I’m wont for a little company and mischief, out here in these woods.
+	@chatEnd:null
+
+	After establishing that you’re free to go, the witch offers you her cauldron as a gift. You try to politely refuse, claiming that it would be too bulky to transport back to the camp, but she finds a simple solution.
 
 	@image:cauldron
 
-	By her tattered black shawl and the characteristic pointed black hat, you are certain that this slug-woman is, indeed, a practitioner of the dark arts. She is a witch, and, judging by the large bubbling cauldron over her fire, a soup-witch, to be precise.
+	With a wave of the witch’s hands, the cauldron fades from existence. She assures you that she’s delivered it to your camp, and sends you off with a satchel of some pungent spices and some exotic ingredients you’ve never laid eyes upon.
 
-	Though you expected to run in this scenario, you find yourself oddly unshaken. Perhaps it is the witch’s disarming appearance. Regardless, you gather your courage and ask the soup-witch for directions.
+	@chatStart:soupwitch_neutral
+	Farewell, dear. Thank you for being a good sport!
+	And remember: a good meal is a gift meant to be shared with others.
+	@chatEnd:null
 
-	The soup-witch laughs gleefully, and gives you directions back to the lake in a sing-songy rhyme. The directions are clear and the riddle is easy to remember, so you move to thank the witch and be on your way.
+	With that, you set off back to camp, and quickly find your way out of the woods.
 
-	Before you can get out the first word, however, the witch says you look like someone who likes riddles and games.
-
-	Before you can respond to that, she proposes a wager: she’ll ask you three riddles. If you can answer a single one, she’ll give you a gift, but fail all three, and she will cook you into her soup.
-
-	Before you can respond to that, she says she’s glad you’ll play along and starts saying the first riddle.
-
-	[Imma be real with you, chief, we don’t have the energy rn to come up with three food related riddles but it would be a really cool addition to this passage so maybe we can put that in later]
-
-	Her riddles are all obscure cooking lore, unknown to you.
-
-	What on earth is mayonnaise and how would one ‘de-emulsify’ it.
-
-	Now you have heard three riddles and failed to answer a single one correctly. You brace for the worst.
-
-	But to your surprise, the soup-witch’s malicious expression suddenly gives way to more gleeful cackling, and she puts a tentacle on your shoulder in a reassuring way.
-
-	She tells you that soup-witches don’t eat people. “Not usually” she adds with a grin and a wink. Besides, you’re not plump enough to be worth your broth.
-
-	She apologises for pulling your leg, saying that she is very much want for company and mischief out here in these woods.
-
-	She offers you her cauldron as a gift, which you try to reject at first, but which you accept after much insistence on her part. She also sends you off with a satchel of some pungent spices and some exotic ingredients you’ve never laid eyes upon.
-
-	As she bids you farewell, she thanks you for being a good sport, and tells you to always remember that a good meal is a gift meant to be shared with others.
+	When you return, the heavenly aroma of fresh broth has filled the camp. You try not to think about what peculiar ingredients and dark magicks went into the cauldron to make it so appetising.
 
 	@audioStop:foraging-no-sfx
 
--> plant
+	-> plant
 
 // --------------------------------
 // Plant
