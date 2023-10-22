@@ -15,30 +15,17 @@ You sit alone, with your feet in the slowly-lapping lakewater.
 
 The water is…
 
-	+ [Salty] -> littimer
-	+ [Silty] -> coffin
-	+ [DEBUG: LJS] -> LJS
-   	+ [DEBUG: pylon] -> pylon
-    	+ [DEBUG: uriah] -> uriah
-    	+ [DEBUG: weapons] -> weapons
-    	+ [DEBUG: Egbert] -> egbert
-    	+ [DEBUG: cauldron] -> cauldron
-    	+ [DEBUG: Pecksniff] -> pecksniff
-   	+ [DEBUG: Drone] -> drone
+	+ […salty.] -> littimer
+	+ […silty.] -> coffin
+	+ [DEBUG-END] -> outro
 
 === choice2 ===
 A faint gale of perfumed air makes its way through the camp.
 
 There’s a trace of…
 
-	+ [Cotton] -> LJS
-	+ [Metal] -> pylon
-	+ [DEBUG: uriah] -> uriah
-    	+ [DEBUG: weapons] -> weapons
-    	+ [DEBUG: Egbert] -> egbert
-    	+ [DEBUG: cauldron] -> cauldron
-    	+ [DEBUG: Pecksniff] -> pecksniff
-    	+ [DEBUG: Drone] -> drone
+	+ […cotton.] -> LJS
+	+ […metal.] -> pylon
 
 // Jellychair will happen here
 
@@ -47,12 +34,8 @@ The camp is growing, and so are its needs.
 
 Looking ahead, you consider what you’ll need next…
 
-	+ [Wisdom] -> uriah
-	+ [Weapons] -> weapons
-	+ [DEBUG: Egbert] -> egbert
-    	+ [DEBUG: cauldron] -> cauldron
-    	+ [DEBUG: Pecksniff] -> pecksniff
-    	+ [DEBUG: Drone] -> drone
+	+ […wisdom.] -> uriah
+	+ […weapons.] -> weapons
 
 === choice4 ===
 Your belly rumbles.
@@ -60,10 +43,8 @@ Your belly rumbles.
 You realise you have a dull craving for…
 
 
-	+ [Fish] -> egbert
-	+ [Soup] -> cauldron
-	+ [DEBUG: Pecksniff] -> pecksniff
-    	+ [DEBUG: Drone] -> drone
+	+ […fish.] -> egbert
+	+ […soup.] -> cauldron
 
 // Plant will happen here
 
@@ -72,8 +53,8 @@ Sitting there, you absentmindedly recall a song.
 
 It begins with…
 
-	+ [Beats] -> pecksniff
-	+ [Melody] -> drone
+	+ […beats.] -> pecksniff
+	+ […melody.] -> drone
 
 // Bunting will happen here
 
@@ -1151,10 +1132,36 @@ Ya don’t need any a’that to have a good time, ay!
 // --------------------------------
 === outro ===
 
-@audioPlay:rust-magic
+	@audioPlay:rust-magic
 
-{decorationCount > 2: you preferred decorations|you preferred characters}
+	Something shifts – you're not sure what – and a moment of calm descends.
 
-@audioStop:rust-magic
+	{decorationCount > 2: ->ending_decorations|->ending_companions}
+
+=== ending_companions ===
+
+The camp is abuzz with chatter. The handful of characterful companions you've gathered trade in tales of their lives, in strange rumours and in talk of hope for the future.
+
+In this twilight world, where so little can be taken for granted, this queer little band of strangers is something to hold onto.
+
+There's no guarantee anyone will stay, and it would be wrong to try to make them. But for now it seems that everyone is content to share in each other's joy. For now, at least, you have them.
+
+When you first came to this quiet spot beside the mottled lake, you were unsure if it would be somewhere you could stay. It hardly felt hospitable, but now it feels alive.
+
+And it was your newfound friends that made it such a comfortable place of safety. The thought occurs that you should tell them so – tell them, with love and gratitude, that they made it feel like home.
+
+->END
+
+=== ending_decorations ===
+
+The camp is quiet, but full of stories. In this place, each item holds significance; each is a part of your tapestry – the things you've done, the things you've seen, and the spirit of the world around you.
+
+Few people in this world are lucky enough to amass so many storied possessions. It's not like the world before, where the accumulation of things became a meaningless hobby.
+
+With the objects you've gathered, you have the means to stay here for a good while – to defend yourself, to stay healthy, and to not go mad with boredom.
+
+Perhaps you will stay, comfortable in your simple bulwark. Perhaps you'll share your comforts with passers-by, and find your calling as a storyteller visited by travellers on their way to parts unknown.
+
+Such dreams would be impossible without the security of this little oasis you've built for yourself. What was once a desolate corner of the world is now something to be proud of – to protect. You made it feel like home.
 
 ->END
