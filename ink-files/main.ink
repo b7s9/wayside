@@ -17,7 +17,6 @@ The water is…
 
 	+ […salty.] -> littimer
 	+ […silty.] -> coffin
-	+ [DEBUG-END] -> outro
 
 === choice2 ===
 A faint gale of perfumed air makes its way through the camp.
@@ -110,8 +109,8 @@ It begins with…
 
 	Do you like their jawts?
 
-	* [Yes] -> littimer_choice_yes
-	* [No] -> littimer_choice_no
+	* [“Yes.”] -> littimer_choice_yes
+	* [“No.”] -> littimer_choice_no
 
 === littimer_choice_yes ===
 	They curl the sides of their gawping mouth like a feasting sturgeon – you think that's a smile – and pat their tummy again, excited.
@@ -311,7 +310,7 @@ Lexis looks backward at Sparks.
 	And Sparks, you're fine with it?
 	@chatEnd:null
 
-	@chatStart:lexis_neutral
+	@chatStart:sparks_neutral
 	…
 	@chatEnd:null
 
@@ -721,7 +720,7 @@ By her tattered black shawl and the characteristic pointed black hat, you are ce
 
 	Before you can get out the first word, however, the witch speaks again.
 
-	@chatStart:soupwitch_neutral
+	@chatStart:soupwitch_sly
 	You look like someone who likes riddles and games!
 	I propose a wager – I’ll ask you three riddles, and if you can answer a single one, I’ll grant you a gift!
 	But beware. Fail all three, and I will cook you into my soup.
@@ -738,15 +737,15 @@ By her tattered black shawl and the characteristic pointed black hat, you are ce
 
 	You consider your answer…
 
-	* [Milk?] -> cauldron_part_1
-	* [Layers?] -> cauldron_part_1
-	* [Uhhh…] -> cauldron_part_1
+	* [“Milk?”] -> cauldron_part_1
+	* [“Layers?”] -> cauldron_part_1
+	* [“Uhhh…”] -> cauldron_part_1
 
 === cauldron_part_1 ===
 
 The soup-witch cackles with glee.
 
-	@chatStart:soupwitch_neutral
+	@chatStart:soupwitch_cackle
 	Demulsification!
 	@chatEnd:null
 
@@ -754,7 +753,7 @@ The soup-witch cackles with glee.
 
 	She grins widely as she begins the next riddle.
 
-	@chatStart:soupwitch_neutral
+	@chatStart:soupwitch_sly
 	Too cold and it stays white,
 	Too hot and it gets black,
 	But at just the right heat, this happens,
@@ -763,9 +762,9 @@ The soup-witch cackles with glee.
 
 	You consider your answer…
 
-	* [Chocolate?] -> cauldron_part_2
-	* [Heat?] -> cauldron_part_2
-	* [Uhhh…] -> cauldron_part_2
+	* [“Chocolate?”] -> cauldron_part_2
+	* [“Heat?”] -> cauldron_part_2
+	* [“Uhhh…”] -> cauldron_part_2
 
 === cauldron_part_2 ===
 
@@ -777,7 +776,7 @@ The soup-witch cackles with glee.
 
 	You feel like you could have guessed that one – you've seen caramels before. You weren’t much of a fan of the tasteless clear film.
 
-	@chatStart:soupwitch_neutral
+	@chatStart:soupwitch_sly
 	My next riddle is the most challenging one yet!
 	You'd better think long and hard about it if you want to avoid being soup.
 	@chatEnd:null
@@ -787,12 +786,13 @@ The soup-witch cackles with glee.
 	She takes a deep breath and recites the last riddle.
 
 	@chatStart:soupwitch_neutral
-	SOYBEAN OIL, WATER, BUTTERMILK, VINEGAR, SUGAR, EGG YOLKS, SALT, CONTAINS LESS THAN 2% OF WHEY (FROM MILK), MODIFIED FOOD STARCH, DRIED ONION, MONOSODIUM GLUTAMATE, PHOSPHORIC ACID, XANTHAN GUM, SORBIC ACID AND CALCIUM DISODIUM EDTA (TO PROTECT FLAVOR), DRIED GARLIC, SPICES, POLYSORBATE 60. What am I?
+	SOYBEAN OIL, WATER, BUTTERMILK, VINEGAR, SUGAR, EGG YOLKS, SALT, CONTAINS LESS THAN 2% OF WHEY (FROM MILK), MODIFIED FOOD STARCH, DRIED ONION, MONOSODIUM GLUTAMATE, PHOSPHORIC ACID, XANTHAN GUM, SORBIC ACID AND CALCIUM DISODIUM EDTA (TO PROTECT FLAVOR), DRIED GARLIC, SPICES, POLYSORBATE 60.
+	What am I?
 	@chatEnd:null
 
-	* [What?] -> cauldron_part_3
-	* [No idea.] -> cauldron_part_3
-	* [Uhhh…] -> cauldron_part_3
+	* [“What?”] -> cauldron_part_3
+	* [“No idea.”] -> cauldron_part_3
+	* [“Uhhh…”] -> cauldron_part_3
 
 === cauldron_part_3 ===
 
@@ -809,7 +809,7 @@ Buttermilk ranch!
 	@chatStart:soupwitch_neutral
 	Soup-witches don’t cook living creatures. Not usually.
 	Besides, you’re not plump enough to be worth your broth.
-	Apologies for bullying your leg, dear.
+	Apologies for pulling your leg, dear.
 	I’m wont for a little company and mischief, out here in these woods.
 	@chatEnd:null
 
@@ -953,8 +953,8 @@ But you know, it's cool if you don't want one. Use responsibly and all that.
 
 	Do you want a party hat?
 
-	* [Yes] -> pecksniff_choice_take
-	* [No] -> pecksniff_choice_refuse
+	* [“Yes.”] -> pecksniff_choice_take
+	* [“No.”] -> pecksniff_choice_refuse
 	
 === pecksniff_choice_take ===
 
@@ -1118,7 +1118,7 @@ Ya don’t need any a’that to have a good time, ay!
 
 	It takes a little while to find a way to secure them properly, but once you're back on the ground, it's clear that it was the right decision.
 	
-	Perhaps the magnificence of the bunting will attract the jealousy of your neighbours, or perhaps it will signal to other weary travellers that your campfire is a welcoming place to unwind and recuperate from the stresses of the world.
+	Perhaps the magnificence of the bunting will attract the jealousy of your neighbours, or perhaps it will signal to other weary travellers that your pyre is a welcoming place to unwind and recuperate from the stresses of the world.
 	
 	But, most of all, it's a joy to have a decoration that inspires a smile each time you lift your gaze to the sky.
 
@@ -1140,28 +1140,28 @@ Ya don’t need any a’that to have a good time, ay!
 
 === ending_companions ===
 
-The camp is abuzz with chatter. The handful of characterful companions you've gathered trade in tales of their lives, in strange rumours and in talk of hope for the future.
+	The camp is abuzz with chatter. The handful of characterful companions you've gathered trade in tales of their lives, in strange rumours and in talk of hope for the future.
 
-In this twilight world, where so little can be taken for granted, this queer little band of strangers is something to hold onto.
+	In this twilight world, where so little can be taken for granted, this queer little band of strangers is something to hold onto.
 
-There's no guarantee anyone will stay, and it would be wrong to try to make them. But for now it seems that everyone is content to share in each other's joy. For now, at least, you have them.
+	There's no guarantee anyone will stay, and it would be wrong to try to make them. But for now it seems that everyone is content to share in each other's joy. For now, at least, you have them.
 
-When you first came to this quiet spot beside the mottled lake, you were unsure if it would be somewhere you could stay. It hardly felt hospitable, but now it feels alive.
+	When you first came to this quiet spot beside the mottled lake, you were unsure if it would be somewhere you could stay. It hardly felt hospitable, but now it feels alive.
 
-And it was your newfound friends that made it such a comfortable place of safety. The thought occurs that you should tell them so – tell them, with love and gratitude, that they made it feel like home.
+	And it was your newfound friends that made it such a comfortable place of safety. The thought occurs that you should tell them so – tell them, with love and gratitude, that they made it feel like home.
 
 ->END
 
 === ending_decorations ===
 
-The camp is quiet, but full of stories. In this place, each item holds significance; each is a part of your tapestry – the things you've done, the things you've seen, and the spirit of the world around you.
+	The camp is quiet, but full of stories. In this place, each item holds significance; each is a part of your tapestry – the things you've done, the things you've seen, and the spirit of the world around you.
 
-Few people in this world are lucky enough to amass so many storied possessions. It's not like the world before, where the accumulation of things became a meaningless hobby.
+	Few people in this world are lucky enough to amass so many storied possessions. It's not like the world before, where the accumulation of things became a meaningless hobby.
 
-With the objects you've gathered, you have the means to stay here for a good while – to defend yourself, to stay healthy, and to not go mad with boredom.
+	With the objects you've gathered, you have the means to stay here for a good while – to defend yourself, to stay healthy, and to not go mad with boredom.
 
-Perhaps you will stay, comfortable in your simple bulwark. Perhaps you'll share your comforts with passers-by, and find your calling as a storyteller visited by travellers on their way to parts unknown.
+	Perhaps you will stay, comfortable in your simple bulwark. Perhaps you'll share your comforts with passers-by, and find your calling as a storyteller visited by travellers on their way to parts unknown.
 
-Such dreams would be impossible without the security of this little oasis you've built for yourself. What was once a desolate corner of the world is now something to be proud of – to protect. You made it feel like home.
+	Such dreams would be impossible without the security of this little oasis you've built for yourself. What was once a desolate corner of the world is now something to be proud of – to protect. You made it feel like home.
 
 ->END
