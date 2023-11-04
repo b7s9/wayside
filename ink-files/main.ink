@@ -146,7 +146,7 @@ It begins with…
 === coffin ===
 	~ decorationCount += 1
 
-	You find yourself drifting in and out of sleep as the long night drags on. That is until the sound of the sound of grinding metal and clanking pierces the peaceful ambience.
+	You find yourself drifting in and out of sleep as the long night drags on. That is until the sound of grinding metal and clanking pierces the peaceful ambience.
 
 	It's easy enough to locate the source. Down by the water, beyond the mossy berms, a grey-blue box rocks in the gentle laketide.
 
